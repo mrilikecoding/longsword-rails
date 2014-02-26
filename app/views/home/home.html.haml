@@ -3,180 +3,138 @@
 = content_for :js_placeholder do
   = javascript_include_tag "manifests/home"
 
-.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
-  .container-fluid
+.navbar.navbar-inverse.navbar-fixed-bottom{role: "navigation"}
+  .container
     .navbar-header
       %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: "#"} Project name
-    .navbar-collapse.collapse
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{href: "#"} Dashboard
-        %li
-          %a{href: "#"} Settings
-        %li
-          %a{href: "#"} Profile
-        %li
-          %a{href: "#"} Help
-      %form.navbar-form.navbar-right
-        %input.form-control{placeholder: "Search...", type: "text"}/
-.container-fluid
-  .row
-    .col-sm-3.col-md-2.sidebar
-      %ul.nav.nav-sidebar
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
         %li.active
-          %a{href: "#"} Overview
+          %a{href: "#"} Home
         %li
-          %a{href: "#"} Reports
+          %a{href: "#visit"} Visit Longsword
         %li
-          %a{href: "#"} Analytics
+          %a{href: "#wines"} Our Wines
         %li
-          %a{href: "#"} Export
-      %ul.nav.nav-sidebar
+          %a{href: "#about"} About Us
         %li
-          %a{href: ""} Nav item
+          %a{href: "#contact"} Contact Us
         %li
-          %a{href: ""} Nav item again
-        %li
-          %a{href: ""} One more nav
-        %li
-          %a{href: ""} Another nav item
-        %li
-          %a{href: ""} More navigation
-      %ul.nav.nav-sidebar
-        %li
-          %a{href: ""} Nav item again
-        %li
-          %a{href: ""} One more nav
-        %li
-          %a{href: ""} Another nav item
-    .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-      %h1.page-header Dashboard
-      .row.placeholders
-        .col-xs-6.col-sm-3.placeholder
-          %img.img-responsive{alt: "Generic placeholder thumbnail", "data-src" => "holder.js/200x200/auto/sky"}/
-          %h4 Label
-          %span.text-muted Something else
-        .col-xs-6.col-sm-3.placeholder
-          %img.img-responsive{alt: "Generic placeholder thumbnail", "data-src" => "holder.js/200x200/auto/vine"}/
-          %h4 Label
-          %span.text-muted Something else
-        .col-xs-6.col-sm-3.placeholder
-          %img.img-responsive{alt: "Generic placeholder thumbnail", "data-src" => "holder.js/200x200/auto/sky"}/
-          %h4 Label
-          %span.text-muted Something else
-        .col-xs-6.col-sm-3.placeholder
-          %img.img-responsive{alt: "Generic placeholder thumbnail", "data-src" => "holder.js/200x200/auto/vine"}/
-          %h4 Label
-          %span.text-muted Something else
-      %h2.sub-header Section title
-      .table-responsive
-        %table.table.table-striped
-          %thead
-            %tr
-              %th #
-              %th Header
-              %th Header
-              %th Header
-              %th Header
-          %tbody
-            %tr
-              %td 1,001
-              %td Lorem
-              %td ipsum
-              %td dolor
-              %td sit
-            %tr
-              %td 1,002
-              %td amet
-              %td consectetur
-              %td adipiscing
-              %td elit
-            %tr
-              %td 1,003
-              %td Integer
-              %td nec
-              %td odio
-              %td Praesent
-            %tr
-              %td 1,003
-              %td libero
-              %td Sed
-              %td cursus
-              %td ante
-            %tr
-              %td 1,004
-              %td dapibus
-              %td diam
-              %td Sed
-              %td nisi
-            %tr
-              %td 1,005
-              %td Nulla
-              %td quis
-              %td sem
-              %td at
-            %tr
-              %td 1,006
-              %td nibh
-              %td elementum
-              %td imperdiet
-              %td Duis
-            %tr
-              %td 1,007
-              %td sagittis
-              %td ipsum
-              %td Praesent
-              %td mauris
-            %tr
-              %td 1,008
-              %td Fusce
-              %td nec
-              %td tellus
-              %td sed
-            %tr
-              %td 1,009
-              %td augue
-              %td semper
-              %td porta
-              %td Mauris
-            %tr
-              %td 1,010
-              %td massa
-              %td Vestibulum
-              %td lacinia
-              %td arcu
-            %tr
-              %td 1,011
-              %td eget
-              %td nulla
-              %td Class
-              %td aptent
-            %tr
-              %td 1,012
-              %td taciti
-              %td sociosqu
-              %td ad
-              %td litora
-            %tr
-              %td 1,013
-              %td torquent
-              %td per
-              %td conubia
-              %td nostra
-            %tr
-              %td 1,014
-              %td per
-              %td inceptos
-              %td himenaeos
-              %td Curabitur
-            %tr
-              %td 1,015
-              %td sodales
-              %td ligula
-              %td in
-              %td libero
+          %a{href: "#"} FB
+
+.header-wrapper.text-center
+  .header-wrapper-inner
+    .cover-container
+      .inner.cover
+        %h1.cover-heading Longsword Vineyard
+        %p.lead Welcome to LongSword vineyard! Our tasting room is open 12-5 every day.
+        %p
+          8555 Highway 238, Jacksonville, OR 97530
+          %br (541) 899-1746 | contact@longsword.com
+
+#visit.visit
+  .container
+    .row
+      .col-md-6.col-md-offset-3.text-center
+        %h1 Visit Longsword
+
+.visit-info
+  .container
+    %p.lead
+      LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley. A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex. Here are a few of the lovely things LongSword has to offer!
+    .row
+      .col-md-2.col-md-offset-2.text-center
+        .visit-item
+          %i.service-icon.fa.fa-rocket
+          %h4 Tasting Room & Patio
+      .col-md-2.text-center
+        .visit-item
+          %i.service-icon.fa.fa-magnet
+          %h4 Our Wines
+      .col-md-2.text-center
+        .visit-item
+          %i.service-icon.fa.fa-shield
+          %h4 The Vineyard & Menagerie
+      .col-md-2.text-center
+        .visit-item
+          %i.service-icon.fa.fa-pencil
+          %h4 Parasailing
+
+
+#wines.wines.text-center
+  %h1 Our Wines
+  .container
+    .row
+      .col-md-2.col-md-offset-2.text-center
+        .wine-item
+          %i.service-icon.fa.fa-rocket
+          %h4 Spacecraft Repair
+          %p Did your navigation system shut down in the middle of that asteroid field? We can repair any dings and scrapes to your spacecraft!
+      .col-md-2.text-center
+        .wine-item
+          %i.service-icon.fa.fa-magnet
+          %h4 Problem Solving
+          %p Need to know how magnets work? Our problem solving solutions team can help you identify problems and conduct exploratory research.
+      .col-md-2.text-center
+        .wine-item
+          %i.service-icon.fa.fa-shield
+          %h4 Blacksmithing
+          %p Planning a time travel trip to the middle ages? Preserve the space time continuum by blending in with period accurate armor and weapons.
+      .col-md-2.text-center
+        .wine-item
+          %i.service-icon.fa.fa-pencil
+          %h4 Pencil Sharpening
+          %p We've been voted the best pencil sharpening service for 10 consecutive years. If you have a pencil that feels dull, we'll get it sharp!
+
+
+.callout
+  .vert-text
+    %h1 A Dramatic Text Area
+
+#portfolio.portfolio
+  .container
+    .row
+      .col-md-4.col-md-offset-4.text-center
+        %h2 Our Work
+        %hr/
+    .row
+      .col-md-4.col-md-offset-2.text-center
+        .portfolio-item
+          %a{href: "#"}
+            %img.img-portfolio.img-responsive{src: "img/portfolio-1.jpg"}/
+          %h4 Cityscape
+      .col-md-4.text-center
+        .portfolio-item
+          %a{href: "#"}
+            %img.img-portfolio.img-responsive{src: "img/portfolio-2.jpg"}/
+          %h4 Is That On Fire?
+    .row
+      .col-md-4.col-md-offset-2.text-center
+        .portfolio-item
+          %a{href: "#"}
+            %img.img-portfolio.img-responsive{src: "img/portfolio-3.jpg"}/
+          %h4 Stop Sign
+      .col-md-4.text-center
+        .portfolio-item
+          %a{href: "#"}
+            %img.img-portfolio.img-responsive{src: "img/portfolio-4.jpg"}/
+          %h4 Narrow Focus
+
+.call-to-action
+  .container
+    .row
+      .col-md-6.col-md-offset-3.text-center
+        %h3 The buttons below are impossible to resist.
+        %a.btn.btn-lg.btn-default{href: "#"} Click Me!
+        %a.btn.btn-lg.btn-primary{href: "#"} Look at Me!
+
+
+#contact.map
+  %iframe{frameborder: "0", height: "100%", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&aq=0&oq=twitter&sll=28.659344,-81.187888&sspn=0.128789,0.264187&ie=UTF8&hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&t=m&z=15&iwloc=A&output=embed", width: "100%"}
+  %br/
+  %small
+    %a{href: "https://maps.google.com/maps?f=q&source=embed&hl=en&geocode=&q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&aq=0&oq=twitter&sll=28.659344,-81.187888&sspn=0.128789,0.264187&ie=UTF8&hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&t=m&z=15&iwloc=A"}

@@ -1,96 +1,129 @@
-/*
- * Base structure
- */
-
-/* Move down content because we have a fixed navbar that is 50px tall */
+html,
 body {
-  padding-top: 50px;
+  height: 100%;
 }
 
+.header-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  background: #eee;
+  .header-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .cover-container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .inner {
+    padding: 30px;
+  }
+  .cover {
+    padding: 0 20px;
+  }
+  .cover .btn-lg {
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  @include at-breakpoint($small-tablet-and-up) {
+    .header-wrapper-inner {
+      vertical-align: middle;
+    }
 
-/*
- * Global add-ons
- */
+    .cover-container {
+      width: 100%;
+    }
+  }
 
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-
-/*
- * Sidebar
- */
-
-/* Hide for mobile, show later */
-.sidebar {
-  display: none;
-}
-@media (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+  @include at-breakpoint ($desktop-layout) {
+    .cover-container {
+      width: 900px;
+    }
   }
 }
 
-/* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a {
-  color: #fff;
-  background-color: #428bca;
+
+.visit, .visit-info {
+  padding: 50px 0;
 }
 
 
-/*
- * Main content
- */
-
-.main {
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
-.main .page-header {
-  margin-top: 0;
+.visit-info {
+  background: #ffe80e;
+  padding: 50px 0;
+  color: #000;
 }
 
+.visit-item {
+  margin-bottom: 15px;
+}
 
-/*
- * Placeholder dashboard ideas
- */
-
-.placeholders {
-  margin-bottom: 30px;
+i.wine-icon {
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 56px;
+  width: 140px;
+  height: 140px;
+  line-height: 136px;
+  vertical-align: middle;
   text-align: center;
 }
-.placeholders h4 {
-  margin-bottom: 0;
+
+/* Callout */
+
+.callout {
+  color: #ffffff;
+  display: table;
+  height: 400px;
+  width: 100%;
+  background: url(../img/callout.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.placeholder {
-  margin-bottom: 20px;
+
+/* Portfolio */
+
+.portfolio {
+  padding: 50px 0;
 }
-.placeholder img {
-  display: inline-block;
-  border-radius: 50%;
+
+.portfolio-item {
+  margin-bottom: 25px;
+}
+
+.img-portfolio {
+  margin: 0 auto;
+}
+
+
+/* Call to Action */
+
+.call-to-action {
+  color: #ffffff;
+  background: #0a5175;
+  padding: 50px 0;
+}
+
+.call-to-action .btn {
+  margin: 10px;
+}
+
+/* Map */
+
+.map {
+  height: 500px;
+}
+
+
+.callout {
+  background: url(../img/callout.jpg) no-repeat center center scroll;
+}
+
+.map {
+  height: 75%;
 }

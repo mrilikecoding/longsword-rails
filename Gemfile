@@ -7,7 +7,9 @@ gem 'rails', '4.0.2'
 gem 'thin'
 gem 'pg'
 
+# heroku
 gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 #assets
 gem 'haml-rails'

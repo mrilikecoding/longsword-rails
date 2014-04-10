@@ -7,6 +7,8 @@ gem 'rails', '4.0.2'
 gem 'thin'
 gem 'pg'
 
+gem 'rails_12factor'
+
 #assets
 gem 'haml-rails'
 gem 'sass-rails', '>= 3.2'

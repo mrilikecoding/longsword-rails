@@ -3,138 +3,181 @@
 = content_for :js_placeholder do
   = javascript_include_tag "manifests/home"
 
-.navbar.navbar-inverse.navbar-fixed-bottom{role: "navigation"}
-  .container
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-    .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li.active
-          %a{href: "#"} Home
-        %li
-          %a{href: "#visit"} Visit Longsword
-        %li
-          %a{href: "#wines"} Our Wines
-        %li
-          %a{href: "#about"} About Us
-        %li
-          %a{href: "#contact"} Contact Us
-        %li
-          %a{href: "#"} FB
-
 .header-wrapper.text-center
-  .header-wrapper-inner
-    .cover-container
-      .inner.cover
-        %h1.cover-heading Longsword Vineyard
-        %p.lead Welcome to LongSword vineyard! Our tasting room is open 12-5 every day.
+  .container
+    .row.header
+      .col-md-4
+        %h4 Visit Us
+        %address
+          %p
+            8555 Highway 238, Jacksonville, OR 97530
+            %br
+            541.899.1746
+      .col-md-4
+        %h4 Tasting Room Hours
         %p
-          8555 Highway 238, Jacksonville, OR 97530
-          %br (541) 899-1746 | contact@longsword.com
+          12-5pm every day
+          %br
+          contact@longswordvineyard.com
+      .col-md-4
+        %h4 Forecast
+        .weather.global-sunny.pull-left
+        %p.forecast
+          Currently: 72&#186;, mostly sunny
+          %br
+          Later: 78&#186;, sunny
+    .cover-container.billboard.row
 
-#visit.visit
+  #navbar.navbar.navbar-inverse{role: "navigation"}
+    .container
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      %a.navbar-brand{:href => "#"}
+        .global-nav-logo
+      .collapse.navbar-collapse.scrollspy-target
+        %ul.nav.navbar-justified
+          %li
+            %a{href: "#visit"} Visit Longsword
+          %li
+            %a{href: "#wines"} Our Wines
+          %li
+            %a{href: "#about"} About Us
+          %li
+            %a#contact{href: "javascript:void(0)"} Contact
+    #contact-tray
+      .container
+        .row
+          .col-md-5.col-md-offset-3#contact-form
+            .row
+              .form-left
+                .email
+                  %input.form-control{ :placeholder => "Email"}
+                .name
+                  %input.form-control{ :placeholder => "Name"}
+              .form-right
+                %textarea.form-control{ :placeholder => "Message"}
+            .row
+              %button#submit.form-control Send Message to LongSword
+              %a.close-contact Close
+          .col-md-2.facebook
+            .global-facebook
+            %p For up to the minute offers and updates, visit us on Facebook!
+
+
+
+#visit
+  .container
+    %section.visit
+      .row
+        .col-md-3.sidebar
+          .roses
+        .col-md-9.content
+          %h1.section-title Visit Longsword
+          %p.lead LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley.
+          %p A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex.
+          %p.text-muted ----
+          %h3 Here's a sampling of the lovely things Longsword has to offer!
+          .row
+            .col-md-3
+              .global-patio
+              %h4 Tasting Room and Patio
+            .col-md-3
+              .global-parasail
+              %h4 Parasailing
+            .col-md-3
+              .global-boys
+              %h4 The Vineyard and Menagerie
+            .col-md-3
+              .global-grapes
+              %h4 Specialty Wines
+
+    %section.tasting-room.sub-section
+      .row
+        .col-md-3.sidebar
+        .col-md-9.content
+          %h1.section-title Tasting room and patio
+          %p.lead Enjoy chatting with locals in the coolness of the tasting room, or spend a relaxing afternoon in the shade on the sun-drenched patio.
+          %p
+            Both the tasting room and patio feature breath-taking views of the vineyard and the surrounding mountains. Tastings are complimentary and lingering is encouraged.
+            %span.strong Open 12-5 daily.
+
+    %section.vineyard.sub-section
+      .row
+        .col-md-12.content
+          %h1.section-title Vineyard and Menagerie
+          %p.lead Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
+          %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Some stuff about the menagerie can go here.
+    %section.parasailing.sub-section
+      .row
+        .col-md-3.sidebar
+        .col-md-9.content
+          %h1.section-title Parasailing
+          %p.lead On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
+          %p Work your way through a bottle, and you'll probably even witness a daredevil landing or two in the field in front of the tasting room!
+          %p.text-muted ----
+          %h3 Interested in taking the plunge? Visit rvhpa.org to schedule a tandem flight and then land at LongSword for a glass of wine to celebrate your bravery.
+
+
+%section#wines
   .container
     .row
-      .col-md-6.col-md-offset-3.text-center
-        %h1 Visit Longsword
+      .col-md-12.content
+        %h1.section-title Our wines
+        %p.lead Found exclusively at our vineyard and at very select retailers, LongSword’s collection of wines [stuff about the wines].
+        %p More stuff about the wines-- maybe something about the techniques used to bottle them/what makes them so unique and desireable. Definitely a line about award-winning-ness.
+        .row
+          .col-md-4
+            .global-patio
+            %h3 Accolade
+            %p Stuff about Invitation, mention awards/special points briefly
+          .col-md-4
+            .global-parasail
+            %h3 Invitation
+            %p Stuff about Invitation, mention awards/special points briefly
 
-.visit-info
-  .container
-    %p.lead
-      LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley. A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex. Here are a few of the lovely things LongSword has to offer!
-    .row
-      .col-md-2.col-md-offset-2.text-center
-        .visit-item
-          %i.service-icon.fa.fa-rocket
-          %h4 Tasting Room & Patio
-      .col-md-2.text-center
-        .visit-item
-          %i.service-icon.fa.fa-magnet
-          %h4 Our Wines
-      .col-md-2.text-center
-        .visit-item
-          %i.service-icon.fa.fa-shield
-          %h4 The Vineyard & Menagerie
-      .col-md-2.text-center
-        .visit-item
-          %i.service-icon.fa.fa-pencil
-          %h4 Parasailing
+          .col-md-4
+            .global-boys
+            %h3 Phrase
+            %p Stuff about Invitation, mention awards/special points briefly
 
-
-#wines.wines.text-center
-  %h1 Our Wines
+%section#about
   .container
     .row
-      .col-md-2.col-md-offset-2.text-center
-        .wine-item
-          %i.service-icon.fa.fa-rocket
-          %h4 Spacecraft Repair
-          %p Did your navigation system shut down in the middle of that asteroid field? We can repair any dings and scrapes to your spacecraft!
-      .col-md-2.text-center
-        .wine-item
-          %i.service-icon.fa.fa-magnet
-          %h4 Problem Solving
-          %p Need to know how magnets work? Our problem solving solutions team can help you identify problems and conduct exploratory research.
-      .col-md-2.text-center
-        .wine-item
-          %i.service-icon.fa.fa-shield
-          %h4 Blacksmithing
-          %p Planning a time travel trip to the middle ages? Preserve the space time continuum by blending in with period accurate armor and weapons.
-      .col-md-2.text-center
-        .wine-item
-          %i.service-icon.fa.fa-pencil
-          %h4 Pencil Sharpening
-          %p We've been voted the best pencil sharpening service for 10 consecutive years. If you have a pencil that feels dull, we'll get it sharp!
-
-
-.callout
-  .vert-text
-    %h1 A Dramatic Text Area
-
-#portfolio.portfolio
+      .col-md-3.sidebar
+      .col-md-9.content
+        %h1.section-title About Us
+        %p.lead A brief story about the establishement of LongSword, and the passion that inspires Matt to improve it every day.
+        %p A bit more about the history, maybe some key people? Mostly, this should be a biography about Matt as his story relates to LongSword. Definitely worth mentioning the fencing.
+%footer
   .container
     .row
-      .col-md-4.col-md-offset-4.text-center
-        %h2 Our Work
-        %hr/
-    .row
-      .col-md-4.col-md-offset-2.text-center
-        .portfolio-item
-          %a{href: "#"}
-            %img.img-portfolio.img-responsive{src: "img/portfolio-1.jpg"}/
-          %h4 Cityscape
-      .col-md-4.text-center
-        .portfolio-item
-          %a{href: "#"}
-            %img.img-portfolio.img-responsive{src: "img/portfolio-2.jpg"}/
-          %h4 Is That On Fire?
-    .row
-      .col-md-4.col-md-offset-2.text-center
-        .portfolio-item
-          %a{href: "#"}
-            %img.img-portfolio.img-responsive{src: "img/portfolio-3.jpg"}/
-          %h4 Stop Sign
-      .col-md-4.text-center
-        .portfolio-item
-          %a{href: "#"}
-            %img.img-portfolio.img-responsive{src: "img/portfolio-4.jpg"}/
-          %h4 Narrow Focus
+      .col-md-3
+        %h3 Visit Us
+        %p
+          8555 Highway 238
+          %br Jacksonville, OR 97530
+        %p
+          %a{:href => "#"} see it in the map &rarr;
 
-.call-to-action
-  .container
-    .row
-      .col-md-6.col-md-offset-3.text-center
-        %h3 The buttons below are impossible to resist.
-        %a.btn.btn-lg.btn-default{href: "#"} Click Me!
-        %a.btn.btn-lg.btn-primary{href: "#"} Look at Me!
-
-
-#contact.map
-  %iframe{frameborder: "0", height: "100%", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&aq=0&oq=twitter&sll=28.659344,-81.187888&sspn=0.128789,0.264187&ie=UTF8&hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&t=m&z=15&iwloc=A&output=embed", width: "100%"}
-  %br/
-  %small
-    %a{href: "https://maps.google.com/maps?f=q&source=embed&hl=en&geocode=&q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&aq=0&oq=twitter&sll=28.659344,-81.187888&sspn=0.128789,0.264187&ie=UTF8&hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&t=m&z=15&iwloc=A"}
+      .col-md-3
+        %h3 Tasting Room
+        %p
+          Open 12pm - 5pm every day
+      .col-md-3
+        %h3 Contact Us
+        %p
+          541.899.1746
+          %br contact@longsword.com
+        .global-facebook-sm
+      .col-md-3
+        %h3 Credits
+        %p
+          @ 2012-2013. LongSword Vineyard.
+          %br All Rights Reserved.
+          Photography by Kate Vangeloff
+          %br Site Design by Jen Dorman
+          Coded by Nathan Green

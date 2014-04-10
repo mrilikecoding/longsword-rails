@@ -39,6 +39,10 @@ $sb-second-color: #eee;
 $sb-text-color: #333;
 
 
+//fonts
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300);
+
+
 // ---------------------------------------------------------------------------
 // Mixins
 
@@ -128,68 +132,6 @@ $sb-text-color: #333;
   box-shadow: $settings;
 }
 
-@mixin button() {
-
-  font: 14px sans-serif;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: 1px 1px 1px #000000;
-
-  display: inline-block;
-  padding: 10px 8px;
-  margin: 0 0 5px 0;
-  min-width: 75px;
-  position: relative;
-
-  @include border-radius(3px);
-
-  background: rgba(58, 177, 239, 0.9);
-
-  @include box-shadow(0px 2px 0px 0px #287ca8);
-
-  &.active {
-    background: #98deff !important;
-    @include box-shadow(0 0 20px #00aeff);
-  }
-
-  &.trivia.active {
-    background: rgb(255,67,38) !important;
-    @include box-shadow(0 0 20px #ff4326);
-
-    &.shhh {
-      background: #a9d36b !important;
-      @include box-shadow(0px 2px 0px 0px #75d36b);
-    }
-  }
-
-  &.trivia.correct, &.trivia.incorrect {
-    padding-left: 20px;
-  }
-
-  &.trivia.correct:after, &.trivia.incorrect:after {
-    font-family: 'Glyphicons Halflings';
-    position: absolute;
-    left: 5px;
-    top: 8px;
-  }
-
-  &.trivia.correct:after {
-    content: "\e013";
-  }
-
-  &.trivia.incorrect:after {
-    content: "\e014";
-  }
-
-  @include at-breakpoint($desktop-layout) {
-    margin: 0 5px 10px 0;
-  }
-
-  @include at-breakpoint($tablet-layout) {
-    margin: 0 5px 10px 0;
-  }
-}
 
 @mixin columns($count: 3, $gap: 20px, $fill: auto) {
   -webkit-column-count: $count;

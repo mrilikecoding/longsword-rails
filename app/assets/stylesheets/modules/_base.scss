@@ -3,7 +3,6 @@
 
 @import "compass/utilities";
 @import "susy";
-@import "sassy-buttons";
 
 // ---------------------------------------------------------------------------
 // Basic Grid
@@ -28,15 +27,12 @@ $small-tablet-and-up: 55em 12;
 // Colors
 
 $gray: #999;
+$warm-gray: #59574e;
+$light-warm-gray: #bfbdaf;
+$dark-gray: #424242;
 $light-gray: #eee;
-
-
-// ---------------------------------------------------------------------------
-// Sassy Buttons
-
-$sb-base-color: #f9f9f9;
-$sb-second-color: #eee;
-$sb-text-color: #333;
+$cream: #fffcea;
+$yellow: #fbdf54;
 
 
 //fonts

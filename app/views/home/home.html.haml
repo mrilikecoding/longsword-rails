@@ -1,7 +1,7 @@
 = content_for :css_placeholder do
-  = stylesheet_link_tag "manifests/home"
+  = stylesheet_link_tag 'manifests/home'
 = content_for :js_placeholder do
-  = javascript_include_tag "manifests/home"
+  = javascript_include_tag 'manifests/home'
 
 .header-wrapper.text-center
   .container
@@ -97,23 +97,45 @@
 
     %section.tasting-room.sub-section
       .row
-        .col-md-3.sidebar
-        .col-md-9.content
+        .col-md-4.sidebar
+          #patio.slider
+            .slider-controls
+              .global-arrow-left
+              .global-arrow-right
+            %ul
+              - 11.times do |i|
+                %li
+                  %img{:src => image_path("patio/#{i+1}.png")}
+        .col-md-8.content
           %h1.section-title Tasting room and patio
-          %p.lead Enjoy chatting with locals in the coolness of the tasting room, or spend a relaxing afternoon in the shade on the sun-drenched patio.
-          %p
-            Both the tasting room and patio feature breath-taking views of the vineyard and the surrounding mountains. Tastings are complimentary and lingering is encouraged.
-            %span.strong Open 12-5 daily.
+          %p.lead Enjoy chatting with locals as you sample our wines in the tasting room or grab a bottle and spend a relaxing afternoon on the patio.
+          %p Either way you'll be enchanted by breath-taking views of the vineyard and the surrounding mountains. Tastings are complimentary and lingering is encouraged.
 
     %section.vineyard.sub-section
       .row
         .col-md-12.content
+          #vineyard.slider
+            .slider-controls
+              .global-arrow-left
+              .global-arrow-right
+            %ul
+              - 13.times do |i|
+                %li
+                  %img{:src => image_path("vineyard/#{i+1}.png")}
           %h1.section-title Vineyard and Menagerie
           %p.lead Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
-          %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Some stuff about the menagerie can go here.
+          %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Guests are often greeted by a delightful collection of farm animals that call LongSword home: 40 Plymouth Barred Rocks chickens, 3 Pilgrim geese (led by the recalcitrant Boris), Will Feral (the elusive barn cat), and three Baby Doll Southdown sheep aptly named Einstein, Newton, and Hawking.
     %section.parasailing.sub-section
       .row
         .col-md-3.sidebar
+          #parasailing.slider
+            .slider-controls
+              .global-arrow-left
+              .global-arrow-right
+            %ul
+              - 6.times do |i|
+                %li
+                  %img{:src => image_path("parasailing/#{i+1}.png")}
         .col-md-9.content
           %h1.section-title Parasailing
           %p.lead On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
@@ -127,30 +149,37 @@
     .row
       .col-md-12.content
         %h1.section-title Our wines
-        %p.lead Found exclusively at our vineyard and at very select retailers, LongSword’s collection of wines [stuff about the wines].
-        %p More stuff about the wines-- maybe something about the techniques used to bottle them/what makes them so unique and desireable. Definitely a line about award-winning-ness.
+        %p.lead This summer we are offering three varietals that can only be purchased at LongSword Vineyard.
         .row
           .col-md-4
             .global-patio
             %h3 Accolade
-            %p Stuff about Invitation, mention awards/special points briefly
+            %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
           .col-md-4
             .global-parasail
             %h3 Invitation
-            %p Stuff about Invitation, mention awards/special points briefly
+            %p Elegant and lively, Invitation is a unique non-oaked Chardonnay that pairs bright citrus and crisp mineral flavors with lovely notes of pear and melon to create a delightfully well-balanced, food-friendly wine.
 
           .col-md-4
             .global-boys
             %h3 Phrase
-            %p Stuff about Invitation, mention awards/special points briefly
+            %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
 
 %section#about
   .container
     .row
-      .col-md-3.sidebar
-      .col-md-9.content
+      .col-md-4.sidebar
+        #story.slider
+          .slider-controls
+            .global-arrow-left
+            .global-arrow-right
+          %ul
+            - 4.times do |i|
+              %li
+                %img{:src => image_path("story/#{i+1}.png")}
+      .col-md-8.content
         %h1.section-title About Us
-        %p.lead A brief story about the establishement of LongSword, and the passion that inspires Matt to improve it every day.
+        %p.lead A brief story about the establishment of LongSword, and the passion that inspires Matt to improve it every day.
         %p A bit more about the history, maybe some key people? Mostly, this should be a biography about Matt as his story relates to LongSword. Definitely worth mentioning the fencing.
 %footer
   .container

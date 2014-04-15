@@ -22,7 +22,8 @@ Longsword.global = (function($, document, window, undefined) {
     "use strict";
 
     // configuration properties
-    var $navbar;
+    var $navbar,
+        $carousels;
 
 
     /* Public Methods _________________________________________________________________ */
@@ -34,8 +35,9 @@ Longsword.global = (function($, document, window, undefined) {
      **/
 
     function init() {
-        $navbar = $('#navbar')
+        $navbar = $('#navbar');
 
+        setTimeout(initSliders, 0);
 
         $navbar.affix({
             offset: {
@@ -51,6 +53,8 @@ Longsword.global = (function($, document, window, undefined) {
         $(document)
             .on('click', '#contact', showContact)
             .on('click', '.close-contact', closeTray)
+            .on('click', '.global-arrow-left', prevCarousel)
+            .on('click', '.global-arrow-right', nextCarousel );
 
 
 
@@ -76,6 +80,14 @@ Longsword.global = (function($, document, window, undefined) {
     /* Private Methods ________________________________________________________________ */
 
 
+    function nextCarousel(e){
+        $(this).closest('.slider').trigger('nextSlide');
+    }
+
+    function prevCarousel(e){
+        $(this).closest('.slider').trigger('prevSlide');
+    }
+
     function showContact(e) {
         e.preventDefault;
 
@@ -89,6 +101,43 @@ Longsword.global = (function($, document, window, undefined) {
         } else {
             $('#contact-tray').slideDown();
         }
+    }
+
+    function initSliders(){
+        var $patio = $('#patio'),
+            $vineyard = $('#vineyard'),
+            $parasailing = $('#parasailing'),
+            $story = $('#story'),
+            $sliders;
+
+
+        function setWidth(container){
+            var width = 1;
+            $('ul li img', container).each(function(){
+                width += $(this).outerWidth(true);
+            });
+
+            return width * 3;
+        }
+
+
+        var sliderConfig = {
+            infinite: true,
+            loop: true,
+
+
+        }
+
+
+        $('#patio').lemmonSlider(sliderConfig);
+        $('#vineyard').lemmonSlider(sliderConfig);
+        $('#parasailing').lemmonSlider(sliderConfig);
+        $('#story').lemmonSlider(sliderConfig);
+
+        $('ul', $patio).width(setWidth($patio));
+        $('ul', $vineyard).width(setWidth($vineyard));
+        $('ul', $parasailing).width(setWidth($parasailing));
+        $('ul', $story).width(setWidth($story));
     }
 
     function closeTray() {

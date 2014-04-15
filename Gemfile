@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 gem 'thin'
 gem 'pg'
 
@@ -13,11 +13,13 @@ gem 'newrelic_rpm'
 
 #assets
 gem 'haml-rails'
-gem 'sass-rails', '>= 3.2'
-gem 'compass-rails'
-gem 'susy', git: "git://github.com/ericam/susy.git"
-gem 'sassy-buttons'
+gem 'sass', '~> 3.2.0'
+gem 'compass', '~> 0.12.4'
+gem 'sass-rails', '~> 4.0.2'
+gem 'compass-rails', '~> 1.1.7'
 gem 'uglifier', '>= 1.0.3'
+
+gem 'susy'
 
 
 #tests

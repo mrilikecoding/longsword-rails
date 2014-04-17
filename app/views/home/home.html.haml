@@ -42,11 +42,18 @@
         %ul.nav.navbar-justified
           %li
             %a{href: "#visit"} Visit Longsword
+            %ul.sublist
+              %li
+                %a{href: "#patio"} Tasting room and patio
+              %li
+                %a{href: "#vineyard"} Vineyard and menagerie
+              %li
+                %a{href: "#parasailing"} Parasailing
           %li
             %a{href: "#wines"} Our Wines
           %li
             %a{href: "#about"} About Us
-          %li
+          %li.contact-link
             %a#contact{href: "javascript:void(0)"} Contact
     #contact-tray
       .container
@@ -79,7 +86,7 @@
           %h1.section-title Visit Longsword
           %p.lead LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley.
           %p A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex.
-          %p.text-muted ----
+          %hr
           %h3 Here's a sampling of the lovely things Longsword has to offer!
           .row
             .col-md-3
@@ -94,48 +101,47 @@
             .col-md-3
               .global-grapes
               %h4 Specialty Wines
-
-    %section.tasting-room.sub-section
+    .global-divider.center-block
+    %section#patio.tasting-room.sub-section
       .row
         .col-md-4.sidebar
-          #patio.slider
+          .slider-wrapper
             .slider-controls
               .global-arrow-left
               .global-arrow-right
-            %ul
+            .slider
               - 11.times do |i|
-                %li
-                  %img{:src => image_path("patio/#{i+1}.png")}
+                %img{:src => image_path("patio/#{i+1}.png")}
         .col-md-8.content
           %h1.section-title Tasting room and patio
           %p.lead Enjoy chatting with locals as you sample our wines in the tasting room or grab a bottle and spend a relaxing afternoon on the patio.
-          %p Either way you'll be enchanted by breath-taking views of the vineyard and the surrounding mountains. Tastings are complimentary and lingering is encouraged.
+          %p Either way you'll be enchanted by breath-taking views of the vineyard and the surrounding mountains. Tastings are only $5 and lingering is encouraged.
 
-    %section.vineyard.sub-section
+    .global-divider.center-block
+    %section#vineyard.vineyard.sub-section
       .row
         .col-md-12.content
-          #vineyard.slider
+          .slider-wrapper
             .slider-controls
               .global-arrow-left
               .global-arrow-right
-            %ul
+            .slider
               - 13.times do |i|
-                %li
-                  %img{:src => image_path("vineyard/#{i+1}.png")}
+                %img{:src => image_path("vineyard/#{i+1}.png")}
           %h1.section-title Vineyard and Menagerie
           %p.lead Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
           %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Guests are often greeted by a delightful collection of farm animals that call LongSword home: 40 Plymouth Barred Rocks chickens, 3 Pilgrim geese (led by the recalcitrant Boris), Will Feral (the elusive barn cat), and three Baby Doll Southdown sheep aptly named Einstein, Newton, and Hawking.
-    %section.parasailing.sub-section
+    .global-divider.center-block
+    %section#parasailing.parasailing.sub-section
       .row
         .col-md-3.sidebar
-          #parasailing.slider
+          .slider-wrapper
             .slider-controls
               .global-arrow-left
               .global-arrow-right
-            %ul
+            .slider
               - 6.times do |i|
-                %li
-                  %img{:src => image_path("parasailing/#{i+1}.png")}
+                %img{:src => image_path("parasailing/#{i+1}.png")}
         .col-md-9.content
           %h1.section-title Parasailing
           %p.lead On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
@@ -144,6 +150,7 @@
           %h3 Interested in taking the plunge? Visit rvhpa.org to schedule a tandem flight and then land at LongSword for a glass of wine to celebrate your bravery.
 
 
+.global-divider.center-block
 %section#wines
   .container
     .row
@@ -165,18 +172,18 @@
             %h3 Phrase
             %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
 
+.global-divider.center-block
 %section#about
   .container
     .row
       .col-md-4.sidebar
-        #story.slider
+        .slider-wrapper
           .slider-controls
             .global-arrow-left
             .global-arrow-right
-          %ul
+          .slider
             - 4.times do |i|
-              %li
-                %img{:src => image_path("story/#{i+1}.png")}
+              %img{:src => image_path("story/#{i+1}.png")}
       .col-md-8.content
         %h1.section-title About Us
         %p.lead A brief story about the establishment of LongSword, and the passion that inspires Matt to improve it every day.
@@ -205,7 +212,7 @@
       .col-md-3
         %h3 Credits
         %p
-          @ 2012-2013. LongSword Vineyard.
+          &#169 2012-2013. LongSword Vineyard.
           %br All Rights Reserved.
           Photography by Kate Vangeloff
           %br Site Design by Jen Dorman

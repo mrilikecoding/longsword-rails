@@ -6,9 +6,9 @@ class HomeController < ApplicationController
     forecast = {}
     sunset = {}
 
-    # conditions = HTTParty.get(URI.encode("http://api.wunderground.com/api/8c84efdca7c0fd92/conditions/q/pws:KORJACKS10.json"))
-    # forecast = HTTParty.get(URI.encode("http://api.wunderground.com/api/8c84efdca7c0fd92/forecast/q/pws:KORJACKS10.json"))
-    # sunset = HTTParty.get(URI.encode("http://api.wunderground.com/api/8c84efdca7c0fd92/astronomy/q/pws:KORJACKS10.json"))
+    # conditions = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{ENV['WUNDERGROUND_KEY']}/conditions/q/pws:KORJACKS10.json"))
+    # forecast = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{ENV['WUNDERGROUND_KEY']}/forecast/q/pws:KORJACKS10.json"))
+    # sunset = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{ENV['WUNDERGROUND_KEY']}/astronomy/q/pws:KORJACKS10.json"))
 
     @current_temp = conditions["current_observation"].present? ? conditions["current_observation"]["temp_f"] : 74.04
     @current_weather = conditions["current_observation"].present? ? conditions["current_observation"]["weather"] : "clear"

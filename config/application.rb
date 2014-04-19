@@ -23,17 +23,6 @@ module Longsword
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    #mailer
-    config.action_mailer.delivery_method = :sendmail
-    config.action_mailer.perform_deliveries = true
-    config.action_mailer.raise_delivery_errors = true
-
-    ActionMailer::Base.smtp_settings = {
-        address: 'smtp.mandrillapp.com',
-        port: 587,
-        user_name: ENV['app23978244@heroku.com'],
-        password: ENV['Cq5WicqiNBdYtcGSaaGd5g']
-    }
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

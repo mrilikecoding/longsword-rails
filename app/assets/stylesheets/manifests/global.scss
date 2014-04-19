@@ -2,9 +2,4 @@
 @import '../modules/_base';
 @import 'compass';
 
-//sprites
 
-$global-sprite-dimensions: true;
-$global-spacing: 10px;
-@import 'global/*.png';
-@include all-global-sprites;

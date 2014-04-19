@@ -7,6 +7,7 @@ body {
   height: 100%;
   font-family: 'Times New Roman', serif;
 
+
   section {
     padding: 0 0 20px;
     .content {
@@ -52,8 +53,8 @@ body {
 
     .weather {
       position: relative;
-      bottom: 5px;
-      right: 5px;
+      bottom: 14px;
+      right: 7px;
     }
 
     p {
@@ -255,7 +256,7 @@ body {
 }
 
 #vineyard .section-title {
-  margin-top: 1.4em;
+  //margin-top: 1.4em;
 }
 
 

@@ -1,1 +1,11 @@
 @import "_base";
+//sprites
+
+$global-sprite-dimensions: true;
+$weather-sprite-dimensions: true;
+$global-spacing: 10px;
+$weather-spacing: 10px;
+@import 'global/*.png';
+@import 'weather/*.png';
+@include all-global-sprites;
+@include all-weather-sprites;

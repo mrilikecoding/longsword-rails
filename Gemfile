@@ -22,6 +22,10 @@ gem 'uglifier', '>= 1.0.3'
 gem 'susy'
 
 
+gem 'httparty'
+gem 'binding_of_caller'
+gem 'better_errors'
+
 #tests
 gem 'rspec-rails'
 

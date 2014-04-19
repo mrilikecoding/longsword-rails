@@ -21,11 +21,11 @@
           contact@longswordvineyard.com
       .col-md-4
         %h4 Forecast
-        .weather.global-sunny.pull-left
+        .weather.pull-left{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
         %p.forecast
-          Currently: 72&#186;, mostly sunny
+          Currently: #{@current_temp}&#186;F, #{@current_weather}
           %br
-          Later: 78&#186;, sunny
+          #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
     .cover-container.billboard.row
 
   #navbar.navbar.navbar-inverse{role: "navigation"}
@@ -59,17 +59,18 @@
       .container
         .row
           .col-md-5.col-md-offset-3#contact-form
-            .row
-              .form-left
-                .email
-                  %input.form-control{ :placeholder => "Email"}
-                .name
-                  %input.form-control{ :placeholder => "Name"}
-              .form-right
-                %textarea.form-control{ :placeholder => "Message"}
-            .row
-              %button#submit.form-control Send Message to LongSword
-              %a.close-contact Close
+            = form_tag(send_mail_path) do
+              .row
+                .form-left
+                  .email
+                    = email_field_tag 'email', nil, class: 'form-control', placeholder: 'Email'
+                  .name
+                    = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Name'
+                .form-right
+                  = text_area_tag 'comments', nil, class: 'form-control', placeholder: 'Message'
+              .row
+                = submit_tag nil, class: 'form-control btn btn-default btn-about pull-right', id: 'submit'
+                %a.close-contact Close
           .col-md-2.facebook
             .global-facebook
             %p For up to the minute offers and updates, visit us on Facebook!
@@ -121,6 +122,7 @@
     %section#vineyard.vineyard.sub-section
       .row
         .col-md-12.content
+          %h1.section-title Vineyard and Menagerie
           .slider-wrapper
             .slider-controls
               .global-arrow-left
@@ -128,7 +130,6 @@
             .slider
               - 13.times do |i|
                 %img{:src => image_path("vineyard/#{i+1}.png")}
-          %h1.section-title Vineyard and Menagerie
           %p.lead Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
           %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Guests are often greeted by a delightful collection of farm animals that call LongSword home: 40 Plymouth Barred Rocks chickens, 3 Pilgrim geese (led by the recalcitrant Boris), Will Feral (the elusive barn cat), and three Baby Doll Southdown sheep aptly named Einstein, Newton, and Hawking.
     .global-divider.center-block

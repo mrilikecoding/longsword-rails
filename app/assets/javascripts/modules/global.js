@@ -64,14 +64,13 @@ Longsword.global = (function($, document, window, undefined) {
                     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                     if (target.length) {
                         $('html,body').animate({
-                            scrollTop: target.offset().top
+                            scrollTop: target.offset().top - 150
                         }, 1000);
                         return false;
                     }
                 }
             });
         });
-
     }
 
 
@@ -108,31 +107,68 @@ Longsword.global = (function($, document, window, undefined) {
         var $patio = $('#patio'),
             $vineyard = $('#vineyard'),
             $parasailing = $('#parasailing'),
-            $about = $('#about');
+            $about = $('#about'),
+            config = {};
 
-        var sliderConfig = {
+
+        config.global = {
             auto: {
                 play: false
             },
             height: 'variable',
             width: '100%',
             circular: true,
-            infinite: true,
+            infinite: true
+
+        };
+
+
+        config.patio = $.extend(true, clone(config.global), {
+            items: {
+                width: 'variable',
+                height: 'variable',
+                visible: '1'
+            }
+        });
+
+        config.vineyard = $.extend(true, clone(config.global), {
             items: {
                 width: 'variable',
                 height: 'variable',
                 visible: 'odd+2'
             }
-        }
+        });
 
-        $(window).load(function(){
-            $('.slider', $patio).carouFredSel(sliderConfig);
-            $('.slider', $vineyard).carouFredSel(sliderConfig);
-            $('.slider', $parasailing).carouFredSel(sliderConfig);
-            $('.slider', $about).carouFredSel(sliderConfig);
+        config.parasailing = $.extend(true, clone(config.global), {
 
         });
 
+        config.about = $.extend(true, clone(config.global), {
+
+        });
+
+        $(window).load(function(){
+
+            $('.slider', $patio).carouFredSel(config.patio);
+            $('.slider', $vineyard).carouFredSel(config.vineyard);
+            $('.slider', $parasailing).carouFredSel(config.parasailing);
+            $('.slider', $about).carouFredSel(config.about);
+
+        });
+
+    }
+
+
+    // helper function to copy objects rather than pass reference
+    function clone(obj){
+        if(obj == null || typeof(obj) != 'object')
+            return obj;
+
+        var temp = obj.constructor();
+
+        for(var key in obj)
+            temp[key] = clone(obj[key]);
+        return temp;
     }
 
 

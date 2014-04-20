@@ -22,8 +22,7 @@ Longsword.global = (function($, document, window, undefined) {
     "use strict";
 
     // configuration properties
-    var $navbar,
-        $carousels;
+    var $navbar;
 
 
     /* Public Methods _________________________________________________________________ */
@@ -50,7 +49,13 @@ Longsword.global = (function($, document, window, undefined) {
 
 
 
-        $('body').scrollspy({ target: '.scrollspy-target' , offset: 200 });
+        $('body')
+            .scrollspy({ target: '.scrollspy-target' , offset: 200 })
+            .on('activate.bs.scrollspy', function(){
+                if ($('.navbar-collapse').hasClass('in')) {
+                    resetNav();
+                }
+            });
 
 
         $(document)
@@ -60,8 +65,8 @@ Longsword.global = (function($, document, window, undefined) {
             .on('click', '.global-arrow-right', nextCarousel )
             .on('click', '#nav-toggle', function(){
                 this.classList.toggle( "active" );
-
-            } );
+                orientNav();
+            });
 
         //  smooth scroll
         $(function() {
@@ -112,9 +117,26 @@ Longsword.global = (function($, document, window, undefined) {
     }
 
 
+    function resetNav(){
+        $('.navbar-collapse').collapse('hide');
+        $('.navbar-toggle').removeClass('active');
+    }
+
+    function orientNav(){
+       var $navbar = $('#navbar'),
+           $collapse = $('navbar-collapse')
+
+       if (!$navbar.hasClass('affix') && $('body').scrollTop() <= 100){
+           $('html,body').animate({
+               scrollTop: 145
+           }, 500);
+       }
+    }
 
     function showContact(e) {
         e.preventDefault;
+
+        resetNav();
 
         if ($('#contact-tray').hasClass('open')){
             closeTray();

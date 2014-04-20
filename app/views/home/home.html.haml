@@ -20,29 +20,30 @@
       .global-nav-logo.center-block.visible-xs.mobile-header
 
     .row.header
-      .col-sm-4.col-xs-6
+      .col-sm-4
         %h4 Visit Us
         %address
           %p
-            %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238, Jacksonville, OR 97530
-            %br
+            %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238
+            %br Jacksonville, OR 97530
             %a{:href =>"tel:+15418991746"}541.899.1746
-      .col-sm-4.col-xs-6
+        .divider
+      .col-sm-4
         %h4 Tasting Room Hours
         %p
           12-5pm every day
           %br
           contact@longswordvineyard.com
-      .clearfix.visible-xs
-
-      .col-sm-4.col-xs-12
+        .divider
+      .col-sm-4
         %h4 Forecast
         .weather-wrapper
-          .weather.pull-left{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
+          .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
           %p.forecast
             Currently: #{@current_temp}&#186;F, #{@current_weather}
             %br
             #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
+        .divider
     .cover-container.billboard.row.hidden-xs
 
   #navbar.navbar.navbar-inverse{role: "navigation"}
@@ -55,8 +56,8 @@
       .collapse.navbar-collapse.scrollspy-target
         %ul.nav.navbar-justified
           %li
-            %a{href: "#visit"} Visit Longsword
-            %ul.sublist
+            %a{href: "#visit", "data-close-nav" => "true"} Visit Longsword
+            %ul.sublist.hidden-xs
               %li
                 %a{href: "#patio"} Tasting room and patio
               %li
@@ -64,9 +65,9 @@
               %li
                 %a{href: "#parasailing"} Parasailing
           %li
-            %a{href: "#wines"} Our Wines
+            %a{href: "#wines", "data-close-nav" => "true"} Our Wines
           %li
-            %a{href: "#about"} About Us
+            %a{href: "#about", "data-close-nav" => "true"} About Us
           %li.contact-link
             %a#contact{href: "javascript:void(0)"} Contact
     #contact-tray
@@ -83,7 +84,7 @@
                 .form-right
                   = text_area_tag 'comments', nil, class: 'form-control', placeholder: 'Message'
               .row
-                = submit_tag nil, class: 'form-control btn btn-default btn-about pull-right', id: 'submit'
+                = submit_tag nil, class: 'form-control btn btn-default btn-about pull-right', id: 'submit', value: 'Send message to LongSword'
                 %a.close-contact Close
           .col-md-2.col-sm-3.col-sm-2.facebook
             %a.hidden-xs{:href => "https://www.facebook.com/pages/Longsword-Vineyard/140545862685725", :target => "_blank"}
@@ -208,8 +209,9 @@
               %img{:src => image_path("story/#{i+1}.png")}
       .col-sm-8.content
         %h1.section-title.hidden-xs.hidden-sm About Us
-        %p.lead A brief story about the establishment of LongSword, and the passion that inspires Matt to improve it every day.
-        %p A bit more about the history, maybe some key people? Mostly, this should be a biography about Matt as his story relates to LongSword. Definitely worth mentioning the fencing.
+        %p.lead After thirty years working in the corporate world, Matthew Sorensen decided to trade in his suit and tie for jeans and work boots and head West. Armed with a degree in biochemistry, an MBA, an unquenchable love of wine, and a fencing hobby, Matt set to work on creating LongSword Vineyard.
+        %p From farm to bottle, Matt skillfully crafts each and every LongSword wine. As farmer, owner, and vintner of LongSword, he is passionate about producing wines that will delight and inspire his guests.
+        %p Matt would like to thank the Applegate community, Tony, Teresa, Lola, and Rogue for their generosity in supporting his dream.
 %footer
   .container
     .row

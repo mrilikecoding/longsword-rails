@@ -7,16 +7,39 @@ body {
   height: 100%;
   font-family: 'Times New Roman', serif;
 
+  .global-divider {
+    @media (min-width: 768px){
+      margin: 20px auto 40px;
+    }
+  }
+
+  hr {
+    border-top: 1px ridge $light-warm-gray;
+    margin: 20px 30%;
+  }
+
+  address {
+    cursor: pointer;
+  }
 
   section {
     padding: 0 0 20px;
+    @media (max-width: 400px) {
+      padding: 10px 0 10px;
+    }
     .content {
       padding: 0 50px;
+      @media (max-width: 400px) {
+        padding: 15px;
+      }
     }
   }
 
   h1 {
     font-size: 4em;
+    @media (max-width: 400px) {
+      font-size: 2em;
+    }
     &.section-title {
       margin-top: 0;
     }
@@ -24,12 +47,18 @@ body {
   p {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
+    @media (max-width: 400px) {
+      font-size: 1.2em;
+    }
     &.lead {
       padding-top: 0.9em;
       font-size: 2.8em;
       line-height: 1.3em;
       font-family: 'Times New Roman', serif;
       color: $warm-gray;
+      @media (max-width: 400px) {
+        font-size: 1.7em;
+      }
     }
   }
 }
@@ -43,12 +72,20 @@ body {
   min-height: 100%;
   background: url(image_path('header-bg.png')) 100% 100%;
   background-size: cover;
+  .mobile-header {
+    margin-top: 2em;
+  }
+
+  a {
+    color: $cream;
+  }
 
   .header{
     padding: 15px;
-    .col-md-4 {
+    .col-sm-4 {
       padding: 0px 35px;
     }
+
 
 
     .weather {
@@ -62,13 +99,26 @@ body {
       padding: 0 0 1em;
       font-family: 'Times New Roman', serif;
       font-size: 1em;
+
       &.forecast {
         text-align: left;
+      }
+      .weather-wrapper {
+        @media (max-width: 768px){
+          float: none;
+        }
       }
     }
     h4 {
       font-size: 1.5rem;
       text-transform: uppercase;
+    }
+    @media (max-width: 400px){
+      text-align: left;
+      p {
+        border-bottom: none;
+        font-size: 1.2em;
+      }
     }
   }
 
@@ -104,21 +154,73 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 75px;
-    z-index: 1;
+    height: 79px;
+    z-index: 2;
+
+
   }
 
   .navbar {
+    height: 79px;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     margin-bottom: 0;
-    min-height: 75px;
     text-transform: uppercase;
     background: #000;
     border-bottom: 3px solid $yellow;
     @include border-radius(0px);
+    .navbar-collapse {
+      background: black;
+      margin-left: -16px;
+      margin-right: -16px;
+      border-bottom: 3px solid $yellow;
+    }
+
+    .navbar-toggle {
+      height: 50px;
+      width: 50px;
+      border: 0px solid transparent;
+      background: none;
+      cursor: pointer;
+      &:hover, &:active, &:focus{
+        border: 0px solid transparent;
+        background: none;
+      }
+    }
+
+    #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+      border-radius: 1px;
+      height: 3px;
+      width: 35px;
+      background: white;
+      position: absolute;
+      display: block;
+      content: '';
+    }
+    #nav-toggle span:before {
+      top: -7px;
+    }
+    #nav-toggle span:after {
+      bottom: -7px;
+    }
+
+    #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+      @include transition(all 500ms ease-in-out);
+    }
+    #nav-toggle.active span {
+      background-color: transparent;
+    }
+    #nav-toggle.active span:before, #nav-toggle.active span:after {
+      top: 0;
+    }
+    #nav-toggle.active span:before {
+      @include transform(rotate(45deg));
+    }
+    #nav-toggle.active span:after {
+      @include transform(rotate(-45deg));
+    }
 
     .navbar-justified li{
       display: inline-block;
@@ -144,6 +246,15 @@ body {
         outline: 0;
       }
     }
+    @media (max-width: 996px){
+      .navbar-justified > li {
+        margin: 0;
+      }
+      .navbar-justified > li > a {
+        font-size: 1em;
+      }
+    }
+
 
     .sublist li{
       display: none;
@@ -175,6 +286,10 @@ body {
     background: $yellow;
     color: #000;
     margin-top: -1px;
+
+    a {
+      color: #000;
+    }
 
     .form-left, .form-right {
       display: inline-block;
@@ -248,6 +363,9 @@ body {
 
 #visit{
   padding-top: 45px;
+  @media (max-width: 400px) {
+    padding-top: 0px;
+  }
   .roses {
     background: url(image_path('roses.jpg')) 100% 100%;
     height: 750px;
@@ -263,17 +381,25 @@ body {
 .slider-wrapper {
   position:relative;
 
+
   .slider-controls{
     .global-arrow-left, .global-arrow-right{
       position: absolute;
       top: 50%;
       cursor: pointer;
+      z-index: 1;
     }
     .global-arrow-left{
       left: -26px;
+      @media (max-width: 400px){
+        left: 0px;
+      }
     }
     .global-arrow-right{
       right: -26px;
+      @media (max-width: 400px){
+        right: 0px;
+      }
     }
   }
 
@@ -304,11 +430,43 @@ footer {
   }
 
   a {
-    font-family: "Open Sans", sans-serif;
+    &.see-map{
+      font-family: "Open Sans", sans-serif;
+      text-decoration: underline;
+    }
     color: $cream;
-    text-decoration: underline;
     &:hover {
       color: #fff;
     }
+  }
+}
+
+
+#mapModal {
+  .modal-content{
+    background: #000;
+    color: $cream;
+  }
+  .modal-header{
+    border-bottom: none;
+    a{
+      color: $cream;
+      text-decoration: underline;
+    }
+  }
+  .modal-body{
+    padding: 0;
+    #gmap_canvas {
+      height: 300px;
+      border-top: 2px solid $yellow;
+      border-bottom: 2px solid $yellow;
+    }
+  }
+  .closeModal {
+    text-align: center;
+    font-family: "Times New Roman", serif;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    cursor: pointer;
   }
 }

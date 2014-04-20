@@ -5,7 +5,7 @@ class ContactController < ApplicationController
     email = params[:email]
     body = params[:comments]
     ContactMailer.contact_email(name, email, body).deliver
-    redirect_to root_path, notice: 'Message sent'
+    redirect_to root_path, notice: 'Thank you! Your message has been sent.'
   end
 
 end

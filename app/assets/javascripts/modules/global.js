@@ -47,6 +47,9 @@ Longsword.global = (function($, document, window, undefined) {
             }
         });
 
+
+
+
         $('body').scrollspy({ target: '.scrollspy-target' , offset: 200 });
 
 
@@ -54,7 +57,11 @@ Longsword.global = (function($, document, window, undefined) {
             .on('click', '#contact', showContact)
             .on('click', '.close-contact', closeTray)
             .on('click', '.global-arrow-left', prevCarousel)
-            .on('click', '.global-arrow-right', nextCarousel );
+            .on('click', '.global-arrow-right', nextCarousel )
+            .on('click', '#nav-toggle', function(){
+                this.classList.toggle( "active" );
+
+            } );
 
         //  smooth scroll
         $(function() {
@@ -71,10 +78,38 @@ Longsword.global = (function($, document, window, undefined) {
                 }
             });
         });
+
+        //load google map
+        $('#mapModal').on('shown.bs.modal', init_map);
+
     }
 
 
     /* Private Methods ________________________________________________________________ */
+
+
+    function init_map(){
+        var map, marker, infowindow;
+
+        var myOptions= {
+            zoom:11,
+            center: new google.maps.LatLng (42.313868, -122.968878),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map (document.getElementById ("gmap_canvas"),myOptions);
+
+        marker = new google.maps.Marker ({map: map, position: new google.maps.LatLng (42.233042, -123.05580900000001)});
+
+        infowindow = new google.maps.InfoWindow ({
+            content:"LongSword Vineyard"
+        });
+
+        google.maps.event.addListener (marker, "click", function(){
+            infowindow.open(map,marker);
+        });
+
+    }
 
 
 
@@ -118,7 +153,10 @@ Longsword.global = (function($, document, window, undefined) {
             height: 'variable',
             width: '100%',
             circular: true,
-            infinite: true
+            infinite: true,
+            swipe: {
+                onTouch: true
+            }
 
         };
 
@@ -132,10 +170,11 @@ Longsword.global = (function($, document, window, undefined) {
         });
 
         config.vineyard = $.extend(true, clone(config.global), {
+            align: "left",
             items: {
                 width: 'variable',
                 height: 'variable',
-                visible: 'odd+2'
+                visible: 'even+2'
             }
         });
 

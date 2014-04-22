@@ -22,7 +22,7 @@ Longsword.global = (function($, document, window, undefined) {
     "use strict";
 
     // configuration properties
-    var $navbar;
+    var $navbar, $header_wrapper;
 
 
     /* Public Methods _________________________________________________________________ */
@@ -34,14 +34,22 @@ Longsword.global = (function($, document, window, undefined) {
      **/
 
     function init() {
+        window.scrollTo(0, 1);
         $navbar = $('#navbar');
+        $header_wrapper = $('.header-wrapper');
 
-        setTimeout(initSliders, 0);
+
+        initSliders();
+
+        $header_wrapper
+            .animate({opacity: 0}, 0)
+            .animate({opacity: 1}, 1000);
+
 
         $navbar.affix({
             offset: {
                 top: function() {
-                    return (this.top = ($('.header-wrapper').outerHeight(true) - $navbar.height()));
+                    return (this.top = ($header_wrapper.outerHeight(true) - $navbar.height()));
                 }
             }
         });
@@ -66,6 +74,8 @@ Longsword.global = (function($, document, window, undefined) {
             .on('click', '#nav-toggle', function(){
                 this.classList.toggle( "active" );
                 orientNav();
+                closeTray();
+
             });
 
         //  smooth scroll
@@ -120,11 +130,12 @@ Longsword.global = (function($, document, window, undefined) {
     function resetNav(){
         $('.navbar-collapse').collapse('hide');
         $('.navbar-toggle').removeClass('active');
+        closeTray();
     }
 
     function orientNav(){
        var $navbar = $('#navbar'),
-           $collapse = $('navbar-collapse')
+           $collapse = $('navbar-collapse');
 
        if (!$navbar.hasClass('affix') && $('body').scrollTop() <= 100){
            $('html,body').animate({
@@ -161,6 +172,7 @@ Longsword.global = (function($, document, window, undefined) {
     }
 
     function initSliders(){
+
         var $patio = $('#patio'),
             $vineyard = $('#vineyard'),
             $parasailing = $('#parasailing'),
@@ -170,15 +182,19 @@ Longsword.global = (function($, document, window, undefined) {
 
         config.global = {
             auto: {
-                play: false
+                play: true
             },
             height: 'variable',
             width: '100%',
-            circular: true,
             infinite: true,
+            circular: true,
             swipe: {
                 onTouch: true
+            },
+            scroll: {
+                duration: 900
             }
+
 
         };
 
@@ -189,6 +205,7 @@ Longsword.global = (function($, document, window, undefined) {
                 height: 'variable',
                 visible: '1'
             }
+
         });
 
         config.vineyard = $.extend(true, clone(config.global), {
@@ -196,7 +213,10 @@ Longsword.global = (function($, document, window, undefined) {
             items: {
                 width: 'variable',
                 height: 'variable',
-                visible: 'even+2'
+                visible: 'odd+2'
+            },
+            auto: {
+                play: false
             }
         });
 

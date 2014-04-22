@@ -7,6 +7,13 @@ body {
   height: 100%;
   font-family: 'Times New Roman', serif;
 
+  a {
+    color: $warm-gray;
+    &:hover {
+      color: $warm-gray;
+    }
+  }
+
   .global-divider {
     @media (min-width: 768px){
       margin: 20px auto 40px;
@@ -28,15 +35,17 @@ body {
       padding: 10px 0 10px;
     }
     .content {
-      padding: 0 50px;
-      @media (max-width: 400px) {
-        padding: 15px;
+      padding: 15px;
+
+      @media (min-width: 768){
+        padding: 0 50px;
+
       }
     }
   }
 
   h1 {
-    font-size: 4em;
+    font-size: 3.2em;
     @media (max-width: 400px) {
       font-size: 2em;
     }
@@ -46,13 +55,13 @@ body {
   }
   p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.4em;
     @media (max-width: 400px) {
       font-size: 1.2em;
     }
     &.lead {
       padding-top: 0.9em;
-      font-size: 2.8em;
+      font-size: 2.1em;
       line-height: 1.3em;
       font-family: 'Times New Roman', serif;
       color: $warm-gray;
@@ -63,15 +72,24 @@ body {
   }
 }
 
-.header-wrapper {
+header {
+  background: #000;
   position: relative;
-  display: table;
-  color: $cream;
+  width: 100%;
+  height: 100%;
+}
+
+.header-wrapper {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-  background: url(image_path('header-bg.jpg')) 100% 100%;
+  position: relative;
+  display: table;
+  color: $cream;
+  background: url(image_path('header-bg.jpg'));
   background-size: cover;
+
+  @include transition(background 0.5s linear);
 
   a {
     color: $cream;
@@ -112,7 +130,7 @@ body {
       .weather {
         margin-bottom: -1.7em;
         position: relative;
-        bottom: 4px;
+        bottom: 9px;
       }
 
       p {
@@ -181,7 +199,7 @@ body {
     left: 0;
     right: 0;
     height: 79px;
-    z-index: 2;
+    z-index: 4;
 
 
   }
@@ -200,11 +218,13 @@ body {
     .navbar-collapse {
       position: absolute;
       background: black;
-      border-bottom: 3px solid $yellow;
-      z-index: 2;
+      border-bottom: 3px solid #fbdf54;
+      z-index: 4;
+      margin-left: 0;
+      margin-right: 0;
       margin-top: 9px;
-      left: 0;
-      right: 0;
+      left: -1px;
+      right: -1px;
       @include box-shadow(none);
       @media (min-width: 768px){
         position: static;
@@ -314,7 +334,7 @@ body {
   }
 
   #contact-tray {
-    z-index: 1;
+    z-index: 3;
     position: absolute;
     left: 0;
     right: 0;
@@ -401,11 +421,21 @@ body {
   @media (max-width: 400px) {
     padding-top: 0px;
   }
+
+  .content {
+    @media (min-width: 960px){
+       padding: 0 50px;
+    }
+  }
   .roses {
+    height: 550px;
     background: url(image_path('roses.jpg')) 100% 100%;
-    height: 750px;
+  }
+
+  .offerings {
     width: 100%;
   }
+
 }
 
 
@@ -418,17 +448,17 @@ body {
       position: absolute;
       top: 50%;
       cursor: pointer;
-      z-index: 1;
+      z-index: 2;
     }
     .global-arrow-left{
       left: -26px;
-      @media (max-width: 400px){
+      @media (max-width: 768px){
         left: 0px;
       }
     }
     .global-arrow-right{
       right: -26px;
-      @media (max-width: 400px){
+      @media (max-width: 768px){
         right: 0px;
       }
     }
@@ -437,7 +467,6 @@ body {
   .slider {
     height: 450px;
     width: 100%;
-    overflow: hidden;
     img {
       display: block;
       float: left;

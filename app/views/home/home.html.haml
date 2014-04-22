@@ -5,91 +5,90 @@
 
 
 
-
-.header-wrapper.text-center
-
-  .container
-    .row
-      .alert-container.col-md-6.col-md-offset-3
-        - flash.each do |name, msg|
-          - if msg.is_a?(String)
-            %div{class: "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
-              = content_tag :div, msg, :id => "flash_#{name}"
-    .row
-      .global-nav-logo.center-block.visible-xs.mobile-header
-
-    .row.header
-      .col-sm-4
-        %h4 Visit Us
-        %address
-          %p
-            %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238
-            %br Jacksonville, OR 97530
-            %a{:href =>"tel:+15418991746"}541.899.1746
-        .divider
-      .col-sm-4
-        %h4 Tasting Room Hours
-        %p
-          12-5pm every day
-          %br
-          contact@longswordvineyard.com
-        .divider
-      .col-sm-4
-        %h4 Forecast
-        .weather-wrapper
-          .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
-          %p.forecast
-            Currently: #{@current_temp}&#186;F, #{@current_weather}
-            %br
-            #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
-        .divider
-    .cover-container.billboard.row.hidden-xs
-
-  #navbar.navbar.navbar-inverse{role: "navigation"}
+%header
+  .header-wrapper.text-center
     .container
-      .navbar-header
-        %button#nav-toggle.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-          %span
-        %a.navbar-brand{:href => "#"}
-          .global-nav-logo
-      .collapse.navbar-collapse.scrollspy-target
-        %ul.nav.navbar-justified
-          %li
-            %a{href: "#visit", "data-close-nav" => "true"} Visit Longsword
-            %ul.sublist.hidden-xs
-              %li
-                %a{href: "#patio"} Tasting room and patio
-              %li
-                %a{href: "#vineyard"} Vineyard and menagerie
-              %li
-                %a{href: "#parasailing"} Parasailing
-          %li
-            %a{href: "#wines", "data-close-nav" => "true"} Our Wines
-          %li
-            %a{href: "#about", "data-close-nav" => "true"} About Us
-          %li.contact-link
-            %a#contact{href: "javascript:void(0)"} Contact
-    #contact-tray
+      .row
+        .alert-container.col-md-6.col-md-offset-3
+          - flash.each do |name, msg|
+            - if msg.is_a?(String)
+              %div{class: "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
+                = content_tag :div, msg, :id => "flash_#{name}"
+      .row
+        .global-nav-logo.center-block.visible-xs.mobile-header
+
+      .row.header
+        .col-sm-4
+          %h4 Visit Us
+          %address
+            %p
+              %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238
+              %br Jacksonville, OR 97530
+              %a{:href =>"tel:+15418991746"}541.899.1746
+          .divider
+        .col-sm-4
+          %h4 Tasting Room Hours
+          %p
+            12-5pm every day
+            %br
+            contact@longswordvineyard.com
+          .divider
+        .col-sm-4
+          %h4 Forecast
+          .weather-wrapper
+            .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
+            %p.forecast
+              Currently: #{@current_temp}&#186;F, #{@current_weather}
+              %br
+              #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
+          .divider
+      .cover-container.billboard.row.hidden-xs
+
+    #navbar.navbar.navbar-inverse{role: "navigation"}
       .container
-        .row
-          .col-md-5.col-md-offset-3.col-sm-7.col-sm-offset-2#contact-form
-            = form_tag(send_mail_path) do
-              .row
-                .form-left
-                  .email
-                    = email_field_tag 'email', nil, class: 'form-control', placeholder: 'Email'
-                  .name
-                    = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Name'
-                .form-right
-                  = text_area_tag 'comments', nil, class: 'form-control', placeholder: 'Message'
-              .row
-                = submit_tag nil, class: 'form-control btn btn-default btn-about pull-right', id: 'submit', value: 'Send message to LongSword'
-                %a.close-contact Close
-          .col-md-2.col-sm-3.col-sm-2.facebook
-            %a.hidden-xs{:href => "https://www.facebook.com/pages/Longsword-Vineyard/140545862685725", :target => "_blank"}
-              .global-facebook
-              %p For up to the minute offers and updates, visit us on Facebook!
+        .navbar-header
+          %button#nav-toggle.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span
+          %a.navbar-brand{:href => "#"}
+            .global-nav-logo
+        .collapse.navbar-collapse.scrollspy-target
+          %ul.nav.navbar-justified
+            %li
+              %a{href: "#visit", "data-close-nav" => "true"} Visit Longsword
+              %ul.sublist.hidden-xs
+                %li
+                  %a{href: "#patio"} Tasting room and patio
+                %li
+                  %a{href: "#vineyard"} Vineyard
+                %li
+                  %a{href: "#parasailing"} Parasailing
+            %li
+              %a{href: "#wines", "data-close-nav" => "true"} Our Wines
+            %li
+              %a{href: "#about", "data-close-nav" => "true"} About Us
+            %li.contact-link
+              %a#contact{href: "javascript:void(0)"} Contact
+      #contact-tray
+        .container
+          .row
+            .col-md-5.col-md-offset-3.col-sm-7.col-sm-offset-2#contact-form
+              = form_tag(send_mail_path) do
+                .row
+                  .form-left
+                    .email
+                      = email_field_tag 'email', nil, class: 'form-control', placeholder: 'Email'
+                    .name
+                      = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Name'
+                  .form-right
+                    = text_area_tag 'comments', nil, class: 'form-control', placeholder: 'Message'
+                .row
+                  = submit_tag nil, class: 'form-control btn btn-default btn-about pull-right', id: 'submit', value: 'Send message to LongSword'
+                  %a.close-contact Close
+            .col-md-2.col-sm-3.col-sm-2.facebook
+              %a.hidden-xs{:href => "https://www.facebook.com/pages/Longsword-Vineyard/140545862685725", :target => "_blank"}
+                .global-facebook
+                %p For up to the minute offers and updates, visit us on Facebook!
 
 
 
@@ -97,30 +96,31 @@
   .container
     %section.visit
       .row
-        .col-sm-3.sidebar.col-xs-12
-          .roses.hidden-xs
-        .clearfix.visible-xs
-
-        .col-sm-9.col-xs-11.content
+        .col-md-3.sidebar.hidden-xs.hidden-sm.roses
+        .col-sm-12.col-xs-12.col-md-9.content
           %h1.section-title Visit Longsword
           %p.lead LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley.
           %p A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex.
-          %hr.hidden-xs.hidden-sm
-          %h3.hidden-xs.hidden-sm Here's a sampling of the lovely things Longsword has to offer!
-          .row.hidden-xs.hidden-sm
-            .col-md-3
-              .global-patio
-              %h4 Tasting Room and Patio
-            .col-md-3
-              .global-parasail
-              %h4 Parasailing
-            .clearfix.visible-xs.visible-sm
-            .col-md-3
-              .global-boys
-              %h4 The Vineyard and Menagerie
-            .col-md-3
-              .global-grapes
-              %h4 Specialty Wines
+          %hr
+          %h3 Here's a sampling of the lovely things Longsword has to offer!
+          .row
+            .col-sm-3.col-xs-6
+              %a{:href => "#patio"}
+                .global-patio.offerings
+                %h4 Tasting Room and Patio
+            .col-sm-3.col-xs-6
+              %a{:href => "#vineyard"}
+                .global-boys.offerings
+                %h4 The Vineyard
+            .clearfix.visible-xs
+            .col-sm-3.col-xs-6
+              %a{:href => "#parasailing"}
+                .global-parasail.offerings
+                %h4 Parasailing
+            .col-sm-3.col-xs-6
+              %a{:href => "#wines"}
+                .global-grapes.offerings
+                %h4 Specialty Wines
     .global-divider.center-block
     %section#patio.tasting-room.sub-section
       .row
@@ -132,7 +132,7 @@
               .global-arrow-right
             .slider
               - 11.times do |i|
-                %img{:src => image_path("patio/#{i+1}.png")}
+                %img.lazy{:height => "450", "src" => image_path("patio/#{i+1}.jpg")}
         .col-sm-8.content
           %h1.section-title.hidden-xs Tasting room and patio
           %p.lead Enjoy chatting with locals as you sample our wines in the tasting room or grab a bottle and spend a relaxing afternoon on the patio.
@@ -148,8 +148,8 @@
               .global-arrow-left
               .global-arrow-right
             .slider
-              - 13.times do |i|
-                %img{:src => image_path("vineyard/#{i+1}.png")}
+              - 10.times do |i|
+                %img{"src" => image_path("vineyard/#{i+1}.jpg")}
           %p.lead Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
           %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Guests are often greeted by a delightful collection of farm animals that call LongSword home: 40 Plymouth Barred Rocks chickens, 3 Pilgrim geese (led by the recalcitrant Boris), Will Feral (the elusive barn cat), and three Baby Doll Southdown sheep aptly named Einstein, Newton, and Hawking.
     .global-divider.center-block
@@ -163,7 +163,7 @@
               .global-arrow-right
             .slider
               - 6.times do |i|
-                %img{:src => image_path("parasailing/#{i+1}.png")}
+                %img{:height => "450", "src" => image_path("parasailing/#{i+1}.jpg")}
         .col-sm-8.content
           %h1.section-title.hidden-xs Parasailing
           %p.lead On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
@@ -206,7 +206,7 @@
             .global-arrow-right
           .slider
             - 4.times do |i|
-              %img{:src => image_path("story/#{i+1}.png")}
+              %img{"src" => image_path("story/#{i+1}.jpg")}
       .col-sm-8.content
         %h1.section-title.hidden-xs.hidden-sm About Us
         %p.lead After thirty years working in the corporate world, Matthew Sorensen decided to trade in his suit and tie for jeans and work boots and head West. Armed with a degree in biochemistry, an MBA, an unquenchable love of wine, and a fencing hobby, Matt set to work on creating LongSword Vineyard.
@@ -254,7 +254,7 @@
           LongSword is located at
           %a{:target => "_blank", :href => "https://goo.gl/maps/YBqYc"} 8555 Highway 238, Jacksonville, OR 97530
       .modal-body
-        #gmap_canvas{style: "height:500px;"}
+        #gmap_canvas{style: "height:350px;"}
 
         .closeModal{"data-dismiss" => "modal", type: "button"} Close
 

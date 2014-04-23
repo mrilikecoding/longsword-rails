@@ -2,7 +2,6 @@
 
 html,
 body {
-  background: url(image_path('creampaper.png')) repeat $cream;
   font-size: 14px;
   height: 100%;
   font-family: 'Times New Roman', serif;
@@ -73,7 +72,6 @@ body {
 }
 
 header {
-  background: #000;
   position: relative;
   width: 100%;
   height: 100%;
@@ -83,10 +81,11 @@ header {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-  position: relative;
-  display: table;
+  position: fixed;
+  z-index: -1;
   color: $cream;
-  background: url(image_path('header-bg.jpg'));
+  background-image: url(image_path('header-bg.jpg'));
+  background-position: auto;
   background-size: cover;
 
   @include transition(background 0.5s linear);
@@ -193,228 +192,235 @@ header {
     font-weight: bold;
   }
 
-  #navbar.affix {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 79px;
+}
+#navbar.affix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 79px;
+  z-index: 4;
+
+
+}
+
+.navbar {
+  height: 79px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  background: #000;
+  border-bottom: 3px solid $yellow;
+  @include border-radius(0px);
+  .navbar-collapse {
+    text-align: center;
+    position: absolute;
+    background: black;
+    border-bottom: 3px solid #fbdf54;
     z-index: 4;
-
-
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 9px;
+    left: -1px;
+    right: -1px;
+    @include box-shadow(none);
+    @media (min-width: 768px){
+      position: static;
+      margin-top: 0px;
+      width: auto;
+    }
   }
 
-  .navbar {
-    height: 79px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-bottom: 0;
-    text-transform: uppercase;
-    background: #000;
-    border-bottom: 3px solid $yellow;
-    @include border-radius(0px);
-    .navbar-collapse {
-      position: absolute;
-      background: black;
-      border-bottom: 3px solid #fbdf54;
-      z-index: 4;
-      margin-left: 0;
-      margin-right: 0;
-      margin-top: 9px;
-      left: -1px;
-      right: -1px;
-      @include box-shadow(none);
-      @media (min-width: 768px){
-        position: static;
-        margin-top: 0px;
-        width: auto;
-      }
-    }
-
-    .navbar-toggle {
-      height: 50px;
-      width: 50px;
+  .navbar-toggle {
+    height: 50px;
+    width: 50px;
+    border: 0px solid transparent;
+    background: none;
+    cursor: pointer;
+    &:hover, &:active, &:focus{
       border: 0px solid transparent;
       background: none;
-      cursor: pointer;
-      &:hover, &:active, &:focus{
-        border: 0px solid transparent;
-        background: none;
-      }
     }
+  }
 
-    #nav-toggle{
+  #nav-toggle{
 
-      span, span:before,  span:after {
-        border-radius: 1px;
-        height: 3px;
-        width: 35px;
-        background: white;
-        position: absolute;
-        display: block;
-        content: '';
-        @include transition(all 500ms ease-in-out);
-      }
-      span:before {
-        top: -7px;
-      }
-      span:after {
-        bottom: -7px;
-      }
-
-      &.active {
-        span{
-          background-color: transparent;
-          &:before, &:after{
-            top: 0;
-          }
-          &:before{
-            @include transform(rotate(45deg));
-          }
-          &:after {
-            @include transform(rotate(-45deg));
-          }
-        }
-      }
-    }
-
-    .navbar-justified li{
-      display: inline-block;
-      margin: 0 20px;
-      position: relative;
-
-
-      &.active > a {
-        color: $yellow;
-      }
-
-      > a {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        line-height: 35px;
-        font-size: 1.2em;
-        color: $cream;
-
-        &:hover, &:active, &:focus {
-          color: $yellow;
-          background: none;
-          outline: 0;
-        }
-
-      }
-
-      @media (max-width: 996px){
-        margin: 0;
-        > a {
-          font-size: 1em;
-        }
-      }
-    }
-
-
-    .sublist li{
-      display: none;
+    span, span:before,  span:after {
+      border-radius: 1px;
+      height: 3px;
+      width: 35px;
+      background: white;
       position: absolute;
-      text-align: left;
-      text-transform: none;
-      width: 100%;
-      &.active {
-        left: 0;
-        bottom: 0;
-        display: inline-block;
-      }
+      display: block;
+      content: '';
+      @include transition(all 500ms ease-in-out);
+    }
+    span:before {
+      top: -7px;
+    }
+    span:after {
+      bottom: -7px;
+    }
 
-      &.active > a {
-        text-decoration: none;
-        color: $cream;
+    &.active {
+      span{
+        background-color: transparent;
+        &:before, &:after{
+          top: 0;
+        }
+        &:before{
+          @include transform(rotate(45deg));
+        }
+        &:after {
+          @include transform(rotate(-45deg));
+        }
       }
     }
   }
 
-  #contact-tray {
-    z-index: 3;
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: none;
-    padding: 80px 0 30px;
-    font-family: "Open Sans", san-serif;
-    background: $yellow;
-    color: #000;
-    margin-top: -1px;
+  .navbar-justified li{
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
 
-    a {
-      color: #000;
+
+    &.active > a {
+      color: $yellow;
     }
 
-    .form-left, .form-right {
-      display: inline-block;
-      width: 50%;
-      height: 110px;
+    > a {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      line-height: 35px;
+      font-size: 1.2em;
+      color: $cream;
+
+      &:hover, &:active, &:focus {
+        color: $yellow;
+        background: none;
+        outline: 0;
+      }
+
     }
 
-    .form-left {
-      float: left;
-    }
-
-    .email, .name {
-      height: 50%;
-      padding-right: 10px;
-    }
-
-    .email {
-      padding-bottom: 5px;
-    }
-
-    .name {
-      padding-top: 5px;
-    }
-
-    ::-webkit-input-placeholder { color: $light-warm-gray; }
-    :-moz-placeholder { color: $light-warm-gray; }
-    ::-moz-placeholder { color: $light-warm-gray; }
-    :-ms-input-placeholder { color: $light-warm-gray;}
-
-    input, textarea {
-      height: 100%;
-      width: 100%;
+    @media (max-width: 996px){
       margin: 0;
-      background: $cream;
-      @include border-radius(0px);
+      > a {
+        font-size: 1em;
+      }
+    }
+  }
+
+
+  .sublist li{
+    display: none;
+    position: absolute;
+    text-align: left;
+    text-transform: none;
+    width: 100%;
+    &.active {
+      left: 0;
+      bottom: 0;
+      display: inline-block;
     }
 
-    p {
-      font-size: 1em;
-      text-transform: none;
-      text-align: left;
-      padding-top: 1em;
-    }
-
-    #submit {
-      margin: 12px 0 85px;
-      height: 50px;
-      background: $cream;
-      text-transform: uppercase;
-      color: $dark-gray;
-      border: 2px solid $dark-gray;
-      @include border-radius(0px);
-    }
-
-    .close-contact {
-      font-family: "Times New Roman", serif;
-      text-transform: uppercase;
-      font-size: 1.5em;
-      color: $dark-gray;
-      cursor: pointer;
-    }
-
-    .facebook {
-      margin-left: 20px;
+    &.active > a {
+      text-decoration: none;
+      color: $cream;
     }
   }
 }
+
+#contact-tray {
+  text-align: center;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: none;
+  padding: 80px 0 30px;
+  font-family: "Open Sans", san-serif;
+  background: $yellow;
+  color: #000;
+  margin-top: -1px;
+
+  a {
+    color: #000;
+  }
+
+  .form-left, .form-right {
+    display: inline-block;
+    width: 50%;
+    height: 110px;
+  }
+
+  .form-left {
+    float: left;
+  }
+
+  .email, .name {
+    height: 50%;
+    padding-right: 10px;
+  }
+
+  .email {
+    padding-bottom: 5px;
+  }
+
+  .name {
+    padding-top: 5px;
+  }
+
+  ::-webkit-input-placeholder { color: $light-warm-gray; }
+  :-moz-placeholder { color: $light-warm-gray; }
+  ::-moz-placeholder { color: $light-warm-gray; }
+  :-ms-input-placeholder { color: $light-warm-gray;}
+
+  input, textarea {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: $cream;
+    @include border-radius(0px);
+  }
+
+  p {
+    font-size: 1em;
+    text-transform: none;
+    text-align: left;
+    padding-top: 1em;
+  }
+
+  #submit {
+    margin: 12px 0 85px;
+    height: 50px;
+    background: $cream;
+    text-transform: uppercase;
+    color: $dark-gray;
+    border: 2px solid $dark-gray;
+    @include border-radius(0px);
+  }
+
+  .close-contact {
+    font-family: "Times New Roman", serif;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: $dark-gray;
+    cursor: pointer;
+  }
+
+  .facebook {
+    margin-left: 20px;
+  }
+}
+
+.main-wrapper {
+  background: url(image_path('creampaper.png')) repeat $cream;
+}
+
 
 #visit{
   padding-top: 45px;
@@ -443,7 +449,9 @@ header {
   position:relative;
 
 
+
   .slider-controls{
+
     .global-arrow-left, .global-arrow-right{
       position: absolute;
       top: 50%;
@@ -467,10 +475,12 @@ header {
   .slider {
     height: 450px;
     width: 100%;
+
     img {
       display: block;
       float: left;
       margin-right: 5px;
+
     }
   }
 

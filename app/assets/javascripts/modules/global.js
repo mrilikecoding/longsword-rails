@@ -22,7 +22,9 @@ Longsword.global = (function($, document, window, undefined) {
     "use strict";
 
     // configuration properties
-    var $navbar, $header_wrapper;
+    var $navbar, $header_wrapper,
+        $header_height, contactTrayOpen,
+        $window = $(window);
 
 
     /* Public Methods _________________________________________________________________ */
@@ -34,6 +36,9 @@ Longsword.global = (function($, document, window, undefined) {
      **/
 
     function init() {
+
+        contactTrayOpen = false;
+
         window.scrollTo(0, 1);
         $navbar = $('#navbar');
         $header_wrapper = $('.header-wrapper');
@@ -57,14 +62,23 @@ Longsword.global = (function($, document, window, undefined) {
 
 
 
-        $('body')
-            .scrollspy({ target: '.scrollspy-target' , offset: 200 })
-            .on('activate.bs.scrollspy', function(){
-                if ($('.navbar-collapse').hasClass('in')) {
-                    resetNav();
-                }
-            });
+//        $('body')
+//            .scrollspy({ target: '.scrollspy-target' })
+//            .on('activate.bs.scrollspy', function(){
+//            if ($('.navbar-collapse').hasClass('in')) {
+//                resetNav();
+//            }
+//        });
 
+        $header_height = $header_wrapper.height()
+
+
+        $window.scroll(function(e) {
+            if ($window.scrollTop() < $header_height){
+                var scrolled = $(window).scrollTop();
+                $header_wrapper.css('top', -(scrolled * 0.2) + 'px');
+            }
+        });
 
         $(document)
             .on('click', '#contact', showContact)
@@ -130,12 +144,14 @@ Longsword.global = (function($, document, window, undefined) {
     function resetNav(){
         $('.navbar-collapse').collapse('hide');
         $('.navbar-toggle').removeClass('active');
-        closeTray();
+        if (contactTrayOpen){
+            closeTray();
+        }
     }
 
     function orientNav(){
        var $navbar = $('#navbar'),
-           $collapse = $('navbar-collapse');
+           $collapse = $('.navbar-collapse');
 
        if (!$navbar.hasClass('affix') && $('body').scrollTop() <= 100){
            $('html,body').animate({
@@ -149,22 +165,25 @@ Longsword.global = (function($, document, window, undefined) {
 
         resetNav();
 
-        if ($('#contact-tray').hasClass('open')){
+        if (contactTrayOpen){
             closeTray();
         } else if ($('.affix-top')){
             $('#contact-tray').addClass('open');
             $('.contact-link', '#navbar').addClass('active');
             $('.navbar').animate({'bottom' : $('#contact-tray').css('height')});
             $('#contact-tray').slideDown();
+            contactTrayOpen = true;
 
         } else {
             $('#contact-tray').slideDown();
+            contactTrayOpen = false;
         }
     }
 
     function closeTray() {
         $('#contact-tray').removeClass('open').slideUp();
         $('.contact-link', '#navbar').removeClass('active');
+        contactTrayOpen = false;
         if ($('.affix-top')){
             $('#contact-tray').slideUp();
             $('.navbar').animate({'bottom' : 0});
@@ -192,7 +211,10 @@ Longsword.global = (function($, document, window, undefined) {
                 onTouch: true
             },
             scroll: {
-                duration: 900
+                duration: 900,
+                fx: 'fade',
+                easing: 'linear',
+                pauseOnHover: true
             }
 
 

@@ -9,9 +9,10 @@ class HomeController < ApplicationController
     # key = ENV['WUNDERGROUND_KEY']
     key = '8c84efdca7c0fd92'
 
-    conditions = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{key}/conditions/q/pws:KORJACKS10.json"))
-    forecast = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{key}/forecast/q/pws:KORJACKS10.json"))
-    sunset = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{key}/astronomy/q/pws:KORJACKS10.json"))
+
+    # conditions = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{key}/conditions/q/pws:KORJACKS10.json"))
+    # forecast = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{key}/forecast/q/pws:KORJACKS10.json"))
+    # sunset = HTTParty.get(URI.encode("http://api.wunderground.com/api/#{key}/astronomy/q/pws:KORJACKS10.json"))
 
     puts key
 

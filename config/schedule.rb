@@ -8,17 +8,16 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 
-set :environment, "development"
-set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
+# set :environment, 'development'
+# set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every 2.minutes do
-  # runner "WeatherCondition.get_current_weather"
-  rake "weather:get_weather"
-end
-
+# every 15.minutes do
+#   rake "weather:fetch"
+# end
 #
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
+# #
+# every 7.days do
+#   rake "weather:prune_old_records"
 # end
 
 # Learn more: http://github.com/javan/whenever

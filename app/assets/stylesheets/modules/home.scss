@@ -444,6 +444,40 @@ header {
 
 }
 
+#wines {
+  .image{
+    position: relative;
+    min-height: 400px;
+    min-width: 272px;
+    height: auto;
+    h3 {
+      position: absolute;
+      text-align: center;
+      text-transform: uppercase;
+      &::first-letter {
+        font-size: 115%;
+      }
+      top: 10px;
+      width: 100%;
+    }
+    img.wine {
+      padding: 25px 0 0;
+      width: 100%;
+      height: auto;
+      top: 0;
+      z-index: 0;
+    }
+    p {
+      color: $cream;
+      position: absolute;
+      padding: 1em;
+      font-size: 1em;
+      bottom: 0;
+      background: rgba(89, 87, 78, 0.78);
+    }
+  }
+}
+
 
 .slider-wrapper {
   position:relative;

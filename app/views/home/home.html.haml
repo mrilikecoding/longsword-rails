@@ -181,19 +181,22 @@
           %h1.section-title Our wines
           %p.lead This summer we are offering three varietals that can only be purchased at LongSword Vineyard.
           .row
-            .col-sm-4
-              .global-patio
-              %h3 Accolade
-              %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
-            .col-sm-4
-              .global-parasail
-              %h3 Invitation
-              %p Elegant and lively, Invitation is a unique non-oaked Chardonnay that pairs bright citrus and crisp mineral flavors with lovely notes of pear and melon to create a delightfully well-balanced, food-friendly wine.
-
-            .col-sm-4
-              .global-boys
-              %h3 Phrase
-              %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
+            .col-md-4.col-sm-6.col-xs-12
+              .image
+                %h3 Accolade
+                %img.wine{:src => image_url('accolade.jpg')}
+                %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
+            .col-md-4.col-sm-6.col-xs-12
+              .image
+                %h3 Invitation
+                %img.wine{:src =>image_url('invitation.jpg')}
+                %p Elegant and lively, Invitation is a unique non-oaked Chardonnay that pairs bright citrus and crisp mineral flavors with lovely notes of pear and melon to create a delightfully well-balanced, food-friendly wine.
+            .clearfix.visible-sm
+            .col-md-4.col-sm-6.col-xs-12
+              .image
+                %h3 Phrase
+                %img.wine{:src => image_url('phrase.jpg')}
+                %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
 
   .global-divider.center-block
   %section#about

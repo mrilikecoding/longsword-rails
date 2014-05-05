@@ -53,7 +53,7 @@ Longsword.global = (function($, document, window, undefined) {
 
         $navbar.affix({
             offset: {
-                top: function() {
+                top: function () {
                     return (this.top = ($header_wrapper.outerHeight(true) - $navbar.height()));
                 }
             }
@@ -72,11 +72,16 @@ Longsword.global = (function($, document, window, undefined) {
 
         $header_height = $header_wrapper.height()
 
-
+        //home brewed parallax
         $window.scroll(function(e) {
             if ($window.scrollTop() < $header_height){
                 var scrolled = $(window).scrollTop();
-                $header_wrapper.css('top', -(scrolled * 0.2) + 'px');
+                $header_wrapper.css({
+                    'top':  -(scrolled * 0.2) + 'px',
+                    'position': 'fixed'
+            });
+            } else {
+                $header_wrapper.css('position', 'static');
             }
         });
 

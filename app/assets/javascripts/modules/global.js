@@ -43,13 +43,16 @@ Longsword.global = (function($, document, window, undefined) {
         $navbar = $('#navbar');
         $header_wrapper = $('.header-wrapper');
         $footer = $('footer');
-        $footer.hide()
+        $footer.css({opacity: 0});
 
         initSliders();
 
-        $header_wrapper.add($footer)
+        $header_wrapper
             .animate({opacity: 0}, 0)
             .animate({opacity: 1}, 1000);
+        $footer
+            .animate({opacity: 0}, 0)
+            .animate({opacity: 1}, 3000);
 
 
         $navbar.affix({

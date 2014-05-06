@@ -23,7 +23,7 @@ Longsword.global = (function($, document, window, undefined) {
 
     // configuration properties
     var $navbar, $header_wrapper,
-        $header_height, contactTrayOpen,
+        $header_height, contactTrayOpen, $footer,
         $window = $(window);
 
 
@@ -42,11 +42,12 @@ Longsword.global = (function($, document, window, undefined) {
         window.scrollTo(0, 1);
         $navbar = $('#navbar');
         $header_wrapper = $('.header-wrapper');
-
+        $footer = $('footer');
+        $footer.hide()
 
         initSliders();
 
-        $header_wrapper
+        $header_wrapper.add($footer)
             .animate({opacity: 0}, 0)
             .animate({opacity: 1}, 1000);
 

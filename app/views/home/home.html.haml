@@ -15,9 +15,6 @@
               %div{class: "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
                 = content_tag :div, msg, :id => "flash_#{name}"
-      .row
-        .global-nav-logo.center-block.visible-xs.mobile-header
-
       .row.header
         .col-sm-4
           %h4 Visit Us
@@ -55,7 +52,7 @@
     .collapse.navbar-collapse.scrollspy-target
       %ul.nav.navbar-justified
         %li
-          %a{href: "#visit", "data-close-nav" => "true"} Visit Longsword
+          %a{href: "#visit", "data-close-nav" => "true"} Visit LongSword
           -#%ul.sublist.hidden-xs
           -#  %li
           -#    %a{href: "#patio"} Tasting room and patio
@@ -86,7 +83,7 @@
               = submit_tag nil, class: 'form-control btn btn-default btn-about pull-right', id: 'submit', value: 'Send message to LongSword'
               %a.close-contact Close
         .col-md-2.col-sm-3.col-sm-2.facebook
-          %a.hidden-xs{:href => "https://www.facebook.com/pages/Longsword-Vineyard/140545862685725", :target => "_blank"}
+          %a.hidden-xs{:href => "https://www.facebook.com/pages/LongSword-Vineyard/140545862685725", :target => "_blank"}
             .global-facebook
             %p For up to the minute offers and updates, visit us on Facebook!
 .main-wrapper
@@ -97,11 +94,10 @@
           .row
             .col-md-3.sidebar.hidden-xs.hidden-sm.roses
             .col-sm-12.col-xs-12.col-md-9.content
-              %h1.section-title Visit Longsword
+              %h1.section-title Visit LongSword
               %p.lead LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley.
               %p A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex.
-              %hr
-              %h3 Here's a sampling of the lovely things Longsword has to offer!
+              %p.lead Here's a sampling of the lovely things LongSword has to offer!
               .row
                 .col-sm-3.col-xs-6
                   %a{:href => "#patio"}
@@ -142,7 +138,7 @@
         %section#vineyard.vineyard.sub-section
           .row
             .col-xs-12
-              %h1.section-title Vineyard and Menagerie
+              %h1.section-title Vineyard
               .slider-wrapper
                 .slider-controls
                   .global-arrow-left
@@ -170,7 +166,7 @@
               %p.lead On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
               %p Work your way through a bottle, and you'll probably even witness a daredevil landing or two in the field in front of the tasting room!
               %hr
-              %h3 Interested in taking the plunge? Visit rvhpa.org to schedule a tandem flight and then land at LongSword for a glass of wine to celebrate your bravery.
+              %p Interested in taking the plunge? Visit rvhpa.org to schedule a tandem flight and then land at LongSword for a glass of wine to celebrate your bravery.
 
 
     .global-divider.center-block
@@ -185,25 +181,25 @@
                 .image
                   %h3 Accolade
                   %img.wine{:src => image_url('accolade.jpg')}
-                  %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
+                %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
               .col-md-4.col-sm-6.col-xs-12
                 .image
                   %h3 Invitation
                   %img.wine{:src =>image_url('invitation.jpg')}
-                  %p Elegant and lively, Invitation is a unique non-oaked Chardonnay that pairs bright citrus and crisp mineral flavors with lovely notes of pear and melon to create a delightfully well-balanced, food-friendly wine.
+                %p Elegant and lively, Invitation is a unique non-oaked Chardonnay that pairs bright citrus and crisp mineral flavors with lovely notes of pear and melon to create a delightfully well-balanced, food-friendly wine.
               .clearfix.visible-sm
               .col-md-4.col-sm-6.col-xs-12
                 .image
                   %h3 Phrase
                   %img.wine{:src => image_url('phrase.jpg')}
-                  %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
+                %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
 
     .global-divider.center-block
     %section#about
       .container
         .row
           .col-sm-4.sidebar
-            %h1.section-title.visible-xs.visible-sm About Us
+            %h1.section-title.visible-xs.visible-sm About us
             .slider-wrapper
               .slider-controls
                 .global-arrow-left
@@ -220,7 +216,7 @@
   .container
     .row
       .col-sm-3.col-xs-6
-        %h3 Visit Us
+        %h3 Visit us
         %p
           8555 Highway 238
           %br Jacksonville, OR 97530
@@ -228,16 +224,16 @@
           %a.see-map{:href => "#", "data-toggle" => "modal", "data-target" => "#mapModal"} see it in the map &rarr;
 
       .col-sm-3.col-xs-6
-        %h3 Tasting Room
+        %h3 Tasting room
         %p
           Open 12pm - 5pm every day
       .clearfix.visible-xs
       .col-sm-3.col-xs-6
-        %h3 Contact Us
+        %h3 Contact us
         %p
           %a{:href =>"tel:+15418991746"}541.899.1746
           %br contact@longsword.com
-        %a{:href => "https://www.facebook.com/pages/Longsword-Vineyard/140545862685725", :target => "_blank"}
+        %a{:href => "https://www.facebook.com/pages/LongSword-Vineyard/140545862685725", :target => "_blank"}
           .global-facebook-sm
       .col-sm-3.col-xs-6
         %h3 Credits
@@ -248,17 +244,17 @@
           %br Site Design by Jen Dorman
           Coded by Nathan Green
   %script{src: "http://maps.google.com/maps/api/js?v=3&sensor=false", type: "text/javascript"}
-  .modal.fade#mapModal
-    .modal-dialog
-      .modal-content
-        .modal-header
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-          %h4.modal-title
-            LongSword is located at
-            %a{:target => "_blank", :href => "https://goo.gl/maps/YBqYc"} 8555 Highway 238, Jacksonville, OR 97530
-        .modal-body
-          #gmap_canvas{style: "height:350px;"}
-
-          .closeModal{"data-dismiss" => "modal", type: "button"} Close
+.modal.fade#mapModal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h3.modal-title
+          Get directions to
+          %a{:target => "_blank", :href => "https://goo.gl/maps/YBqYc"} 8555 Highway 238, Jacksonville, OR 97530
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+      .modal-body
+        #gmap_canvas{style: "height:350px; width: 100%;"}
+      .modal-footer
+        .closeModal{"data-dismiss" => "modal", type: "button"} Close
 
 

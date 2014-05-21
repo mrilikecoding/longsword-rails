@@ -27,8 +27,6 @@ gem 'binding_of_caller'
 gem 'better_errors'
 
 gem 'figaro'
-#
-# gem 'whenever', :require => false
 
 #tests
 gem 'rspec-rails'

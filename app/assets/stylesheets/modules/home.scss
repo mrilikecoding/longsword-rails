@@ -6,7 +6,7 @@ body {
 
 html,
 body {
-  font-size: 14px;
+  font-size: 12px;
   height: 100%;
   font-family: 'Times New Roman', serif;
   a {
@@ -18,13 +18,13 @@ body {
 
   .global-divider {
     @media (min-width: 768px){
-      margin: 20px auto 20px;
+      margin: 40px auto 60px;
     }
   }
 
   hr {
     border-top: 1px ridge $light-warm-gray;
-    margin: 20px 30%;
+    margin: 20px 85% 20px 0;
   }
 
   address {
@@ -57,6 +57,7 @@ body {
   p {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.4em;
+    font-weight: 300;
     @media (max-width: 400px) {
       font-size: 1.2em;
     }
@@ -100,6 +101,7 @@ header {
   }
 
   .header{
+    font-size: 1.2em;
     padding: 15px;
     .col-sm-4 {
 
@@ -119,11 +121,7 @@ header {
     }
 
     .weather-wrapper {
-
-      text-align: left;
-
       p, .weather {
-
         display: inline-block;
       }
 
@@ -132,25 +130,14 @@ header {
         position: relative;
         bottom: 9px;
       }
-
-      p {
-        text-align: left;
-      }
-
-      @media (min-width: 401px) {
-        text-align: center;
-      }
-
     }
 
     p {
       padding: 0 0 1em;
       font-family: 'Times New Roman', serif;
-      text-align: left;
       font-size: 0.9em;
       @media (min-width: 401px) {
         font-size: 1em;
-        text-align: center;
       }
 
     }
@@ -158,10 +145,9 @@ header {
     h4 {
       font-size: 1.4em;
       text-transform: uppercase;
-      text-align: left;
+      text-align: center;
       @media (min-width: 401px) {
         font-size: 1.5em;
-        text-align: center;
       }
     }
   }
@@ -254,7 +240,7 @@ header {
       border-radius: 1px;
       height: 3px;
       width: 35px;
-      background: white;
+      background: $cream;
       position: absolute;
       display: block;
       content: '';
@@ -422,11 +408,9 @@ header {
 .main-wrapper {
   position: relative;
   z-index: 1;
-  background: url(image_path('creampaper.png')) repeat $cream;
+  background: $cream;
   .inner-wrapper{
     position: relative;
-    @include radial-gradient(rgba(251, 223, 84, 0.40), rgba(89, 87, 78, 0.11));
-
   }
 }
 
@@ -455,18 +439,15 @@ header {
 
 #wines {
   .image{
-    @include box-shadow(0px 0px 10px -5px);
     position: relative;
     min-height: 400px;
     min-width: 272px;
     height: auto;
+    margin-bottom: 1em;
     h3 {
       position: absolute;
       text-align: center;
       text-transform: uppercase;
-      &::first-letter {
-        font-size: 115%;
-      }
       top: 10px;
       width: 100%;
     }
@@ -477,18 +458,11 @@ header {
       top: 0;
       z-index: 0;
     }
-    p {
-      color: $cream;
-      padding: 1em;
-      font-size: 1em;
-      bottom: 0;
-      background: rgb(89, 87, 78);
-    }
   }
 }
 
 #about {
-  margin-bottom: 270px;
+  margin-bottom: 250px;
   @include box-shadow(0px 0px 0px #000);
 }
 
@@ -508,13 +482,13 @@ header {
       z-index: 2;
     }
     .global-arrow-left{
-      left: -26px;
+      left: 18px;
       @media (max-width: 768px){
         left: 0px;
       }
     }
     .global-arrow-right{
-      right: -26px;
+      right: 18px;
       @media (max-width: 768px){
         right: 0px;
       }

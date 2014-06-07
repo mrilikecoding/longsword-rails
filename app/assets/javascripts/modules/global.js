@@ -91,6 +91,7 @@ Longsword.global = (function($, document, window, undefined) {
 
         $(document)
             .on('click', '#contact', showContact)
+            .on('click', '.contact-us', showContact)
             .on('click', '.close-contact', closeTray)
             .on('click', '.global-arrow-left', prevCarousel)
             .on('click', '.global-arrow-right', nextCarousel )

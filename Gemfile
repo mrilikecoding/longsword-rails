@@ -9,7 +9,6 @@ gem 'pg'
 
 # heroku
 gem 'rails_12factor'
-gem 'newrelic_rpm'
 
 #assets
 gem 'haml-rails'

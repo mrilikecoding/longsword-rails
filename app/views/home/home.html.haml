@@ -32,14 +32,15 @@
             %a.contact-us{:href=>"#"} Contact Us
           .divider
         .col-sm-4
-          %h4 Forecast
-          .weather-wrapper
-            .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
-            %p.forecast
-              Currently: #{@current_temp}&#186;F, #{@current_weather}
-              %br
-              #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
-          .divider
+          - if @weather_available
+            %h4 Forecast
+            .weather-wrapper
+              .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
+              %p.forecast
+                Currently: #{@current_temp}&#186;F, #{@current_weather}
+                %br
+                  #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
+              .divider
       .cover-container.billboard.row.hidden-xs
 
 #navbar.navbar.navbar-inverse{role: "navigation"}

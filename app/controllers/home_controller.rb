@@ -5,7 +5,16 @@ class HomeController < ApplicationController
     weather = WeatherCondition.last
     @weather_available = WeatherCondition.count > 0
 
-    if @weather_available
+    def valid_json?(json)
+      begin
+        JSON.parse(json)
+        return true
+      rescue Exception => e
+        return false
+      end
+    end
+
+    if @weather_available && valid_json?(weather)
       conditions = JSON.parse(weather.conditions)
       forecast = JSON.parse(weather.forecast)
       astronomy = JSON.parse(weather.astronomy)
@@ -21,8 +30,9 @@ class HomeController < ApplicationController
       @high = forecast["forecast"].present? ? forecast["forecast"]["simpleforecast"]["forecastday"][0]["high"]["fahrenheit"] : 74.04
       @high_tomorrow = forecast["forecast"].present? ? forecast["forecast"]["simpleforecast"]["forecastday"][1]["high"]["fahrenheit"] : 74.04
       @forecast = forecast["forecast"].present? ? forecast["forecast"]["simpleforecast"]["forecastday"][0]["conditions"] : "clear"
+    else
+      @weather_available = false
     end
-
 
     render "home/home"
   end

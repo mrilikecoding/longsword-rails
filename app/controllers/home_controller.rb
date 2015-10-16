@@ -16,7 +16,9 @@ class HomeController < ApplicationController
       end
     end
 
-    if @weather_available && valid_json?(weather)
+    valid_weather = valid_json?(weather.conditions) && valid_json?(weather.forecast) && valid_json?(weather.astronomy)
+
+    if @weather_available && valid_weather
       conditions = JSON.parse(weather.conditions)
       forecast = JSON.parse(weather.forecast)
       astronomy = JSON.parse(weather.astronomy)

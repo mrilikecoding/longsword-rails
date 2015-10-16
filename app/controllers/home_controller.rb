@@ -1,3 +1,5 @@
+require 'json'
+
 class HomeController < ApplicationController
 
   def index
@@ -9,7 +11,7 @@ class HomeController < ApplicationController
       begin
         JSON.parse(json)
         return true
-      rescue Exception => e
+      rescue JSON::ParserError
         return false
       end
     end

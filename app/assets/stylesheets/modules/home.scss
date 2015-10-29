@@ -2,13 +2,14 @@
 
 body {
   background: #000;
+  padding-top: 80px;
 }
 
 html,
 body {
   font-size: 12px;
   height: 100%;
-  font-family: 'Times New Roman', serif;
+  font-family: 'Futura', sans-serif;
   a {
     color: $warm-gray;
     &:hover {
@@ -65,7 +66,7 @@ body {
       padding-top: 0.9em;
       font-size: 2.1em;
       line-height: 1.3em;
-      font-family: 'Times New Roman', serif;
+      font-family: 'Georgia', serif;
       color: $warm-gray;
       @media (max-width: 400px) {
         font-size: 1.7em;
@@ -84,8 +85,9 @@ header {
   height: 100%; /* For at least Firefox */
   min-height: 100%;
   position: static;
+  top: 80px;
   z-index: 0;
-  color: $cream;
+  color: $white;
   background-image: url(image_path('header-bg.jpg'));
   background-position: auto;
   background-size: cover;
@@ -93,7 +95,7 @@ header {
   @include transition(background 0.5s linear);
 
   a {
-    color: $cream;
+    color: $white;
   }
 
   .mobile-header {
@@ -109,7 +111,7 @@ header {
         height: 110px;
         .divider{
           text-align: center;
-          border-bottom: 2px ridge $cream;
+          border-bottom: 2px ridge $white;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -134,7 +136,7 @@ header {
 
     p {
       padding: 0 0 1em;
-      font-family: 'Times New Roman', serif;
+      font-family: 'Georgia', serif;
       font-size: 0.9em;
       @media (min-width: 401px) {
         font-size: 1em;
@@ -180,7 +182,7 @@ header {
   }
 
 }
-#navbar.affix {
+#navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -240,7 +242,7 @@ header {
       border-radius: 1px;
       height: 3px;
       width: 35px;
-      background: $cream;
+      background: $white;
       position: absolute;
       display: block;
       content: '';
@@ -284,7 +286,7 @@ header {
       padding-bottom: 20px;
       line-height: 35px;
       font-size: 1.2em;
-      color: $cream;
+      color: $white;
 
       &:hover, &:active, &:focus {
         color: $yellow;
@@ -317,7 +319,7 @@ header {
 
     &.active > a {
       text-decoration: none;
-      color: $cream;
+      color: $white;
     }
   }
 }
@@ -371,7 +373,7 @@ header {
     height: 100%;
     width: 100%;
     margin: 0;
-    background: $cream;
+    background: $white;
     @include border-radius(0px);
   }
 
@@ -385,7 +387,7 @@ header {
   #submit {
     margin: 12px 0 85px;
     height: 50px;
-    background: $cream;
+    background: $white;
     text-transform: uppercase;
     color: $dark-gray;
     border: 2px solid $dark-gray;
@@ -393,7 +395,7 @@ header {
   }
 
   .close-contact {
-    font-family: "Times New Roman", serif;
+    font-family: 'Georgia', serif;
     text-transform: uppercase;
     font-size: 1.5em;
     color: $dark-gray;
@@ -408,7 +410,7 @@ header {
 .main-wrapper {
   position: relative;
   z-index: 1;
-  background: $cream;
+  background: $white;
   .inner-wrapper{
     position: relative;
   }
@@ -525,7 +527,7 @@ footer {
     text-transform: uppercase;
   }
   p {
-    font-family: "Times New Roman", serif;
+    font-family: 'Georgia', serif;
   }
 
   a {
@@ -563,7 +565,7 @@ footer {
   }
   .closeModal {
     text-align: center;
-    font-family: "Times New Roman", serif;
+    font-family: 'Georgia', serif;
     text-transform: uppercase;
     font-size: 1.5em;
     cursor: pointer;

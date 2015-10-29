@@ -23,14 +23,12 @@
               %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238
               %br Jacksonville, OR 97530
               %a{:href =>"tel:+15418991746"}541.899.1746
-          .divider
         .col-sm-4
           %h4 Tasting Room Hours
           %p
             12-5pm every day
             %br
             %a.contact-us{:href=>"#"} Contact Us
-          .divider
         .col-sm-4
           - if @weather_available
             %h4 Forecast
@@ -40,7 +38,6 @@
                 Currently: #{@current_temp}&#186;F, #{@current_weather}
                 %br
                   #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
-              .divider
       .cover-container.billboard.row.hidden-xs
 
 #navbar.navbar.navbar-inverse{role: "navigation"}
@@ -54,13 +51,6 @@
       %ul.nav.navbar-justified
         %li
           %a{href: "#visit", "data-close-nav" => "true"} Visit LongSword
-          -#%ul.sublist.hidden-xs
-          -#  %li
-          -#    %a{href: "#patio"} Tasting room and patio
-          -#  %li
-          -#    %a{href: "#vineyard"} Vineyard
-          -#  %li
-          -#    %a{href: "#parasailing"} Parasailing
         %li
           %a{href: "#wines", "data-close-nav" => "true"} Our Wines
         %li
@@ -93,90 +83,41 @@
       .container
         %section.visit
           .row
-            .col-md-3.sidebar.hidden-xs.hidden-sm.roses
-            .col-sm-12.col-xs-12.col-md-9.content
+            .col-sm-12
               %h1.section-title Visit LongSword
-              %p.lead LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley.
+              %p LongSword is a breathtaking Chardonnay and Pinot Noir vineyard located in the heart of the Applegate Valley.
               %p A pleasant 15 minute drive from downtown Jacksonville, LongSword features table-ready wines that are distinctly approachable, charming, and complex.
-              %p.lead Here's a sampling of the lovely things LongSword has to offer!
-              .row
-                .col-sm-3.col-xs-6
-                  %a{:href => "#patio"}
-                    .global-patio.offerings
-                    %h4 Tasting Room and Patio
-                .col-sm-3.col-xs-6
-                  %a{:href => "#vineyard"}
-                    .global-boys.offerings
-                    %h4 The Vineyard
-                .clearfix.visible-xs
-                .col-sm-3.col-xs-6
-                  %a{:href => "#parasailing"}
-                    .global-parasail.offerings
-                    %h4 Parasailing
-                .col-sm-3.col-xs-6
-                  %a{:href => "#wines"}
-                    .global-grapes.offerings
-                    %h4 Specialty Wines
 
-        .global-divider.center-block
-        %section#patio.tasting-room.sub-section
+        %section#patio.tasting-room
           .row
-            .col-sm-4.sidebar
-              %h1.section-title.visible-xs Tasting room and patio
-              .slider-wrapper
-                .slider-controls
-                  .global-arrow-left
-                  .global-arrow-right
-                .slider
-                  - 11.times do |i|
-                    %img.lazy{:height => "450", "src" => image_path("patio/#{i+1}.jpg")}
-            .col-sm-8.content
-              %h1.section-title.hidden-xs Tasting room and patio
-              %p.lead Enjoy chatting with locals as you sample our wines in the tasting room or grab a bottle and spend a relaxing afternoon on the patio.
+            .col-sm-12.content
+              %h2.section-title.hidden-xs Tasting room and patio
+              %p Enjoy chatting with locals as you sample our wines in the tasting room or grab a bottle and spend a relaxing afternoon on the patio.
               %p Either way you'll be enchanted by breath-taking views of the vineyard and the surrounding mountains. Tastings are only $5 and lingering is encouraged.
 
-        .global-divider.center-block
-        %section#vineyard.vineyard.sub-section
+        %section#vineyard.vineyard
           .row
-            .col-xs-12
-              %h1.section-title Vineyard
-              .slider-wrapper
-                .slider-controls
-                  .global-arrow-left
-                  .global-arrow-right
-                .slider
-                  - 10.times do |i|
-                    %img{"src" => image_path("vineyard/#{i+1}.jpg")}
-              %p.lead Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
+            .col-sm-12.content
+              %h2.section-title Vineyard
+              %p Nestled between the Siskiyou, Cascade, and Coastal mountain ranges, LongSword encompasses 10 acres of Chardonnay and Pinot Noir vines and 12 acres of natural beauty.
               %p Thanks to the vineyard's unique microclimate, LongSword enjoys sunshine 360 days a year. Guests are often greeted by a delightful collection of farm animals that call LongSword home: 40 Plymouth Barred Rock chickens, 4 Pilgrim geese (led by the recalcitrant Louie), Will Feral (the elusive barn cat), and three Baby Doll Southdown sheep aptly named Einstein, Newton, and Hawking.
 
-        .global-divider.center-block
-        %section#parasailing.parasailing.sub-section
+        %section#parasailing.parasailing
           .row
-            .col-sm-4.sidebar
-              %h1.section-title.visible-xs Parasailing
-              .slider-wrapper
-                .slider-controls
-                  .global-arrow-left
-                  .global-arrow-right
-                .slider
-                  - 6.times do |i|
-                    %img{:height => "450", "src" => image_path("parasailing/#{i+1}.jpg")}
-            .col-sm-8.content
-              %h1.section-title.hidden-xs Parasailing
-              %p.lead On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
+            .col-sm-12.content
+              %h2.section-title.hidden-xs Parasailing
+              %p On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
               %p Work your way through a bottle, and you'll probably even witness a daredevil landing or two in the field in front of the tasting room!
               %hr
               %p Interested in taking the plunge? Visit rvhpa.org to schedule a tandem flight and then land at LongSword for a glass of wine to celebrate your bravery.
 
 
-    .global-divider.center-block
     %section#wines
       .container
         .row
           .col-md-12.content
             %h1.section-title Our wines
-            %p.lead This summer we are offering three varietals that can only be purchased at LongSword Vineyard.
+            %p This summer we are offering three varietals that can only be purchased at LongSword Vineyard.
             .row
               .col-md-4.col-sm-6.col-xs-12
                 .image
@@ -195,22 +136,12 @@
                   %img.wine{:src => image_url('phrase.jpg')}
                 %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
 
-    .global-divider.center-block
     %section#about
       .container
         .row
-          .col-sm-4.sidebar
-            %h1.section-title.visible-xs.visible-sm About us
-            .slider-wrapper
-              .slider-controls
-                .global-arrow-left
-                .global-arrow-right
-              .slider
-                - 4.times do |i|
-                  %img{"src" => image_path("story/#{i+1}.jpg")}
-          .col-sm-8.content
+          .col-sm-12.content
             %h1.section-title.hidden-xs.hidden-sm About Us
-            %p.lead After thirty years working in the corporate world, Matthew Sorensen decided to trade in his suit and tie for jeans and work boots and head West. Armed with degrees in botany, biochemistry, and business, an unquenchable love of wine, and a fencing hobby, Matt set to work on creating LongSword Vineyard.
+            %p After thirty years working in the corporate world, Matthew Sorensen decided to trade in his suit and tie for jeans and work boots and head West. Armed with degrees in botany, biochemistry, and business, an unquenchable love of wine, and a fencing hobby, Matt set to work on creating LongSword Vineyard.
             %p From farm to bottle, Matt skillfully crafts each and every LongSword wine. As farmer, owner, and vintner of LongSword, he is passionate about producing wines that will delight and inspire his guests.
             %p Matt would like to thank the Applegate community, Tony, Teresa, Lola, and Rogue for their generosity in supporting his dream.
 %footer

@@ -37,22 +37,8 @@ Longsword.global = (function($, document, window, undefined) {
 
     contactTrayOpen = false;
 
-    window.scrollTo(0, 1);
     $navbar = $('#navbar');
     $header_wrapper = $('.header-wrapper');
-    $footer = $('footer');
-    $footer.css({opacity: 0});
-
-    initSliders();
-
-    $header_wrapper
-    .animate({opacity: 0}, 0)
-    .animate({opacity: 1}, 1000);
-    $footer
-    .animate({opacity: 0}, 0)
-    .animate({opacity: 1}, 3000);
-
-    $header_height = $header_wrapper.height();
 
     $(document)
     .on('click', '#contact', showContact)
@@ -67,19 +53,17 @@ Longsword.global = (function($, document, window, undefined) {
     });
 
     //  smooth scroll
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                var target = $(this.hash);
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
             if (target.length) {
                 $('html,body').animate({
-                    scrollTop: target.offset().top - 100
-                }, 1000);
+                    scrollTop: target.offset().top - 80
+                }, 500, 'swing');
                 return false;
             }
-            }
-        });
+        }
     });
 
     //load google map

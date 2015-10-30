@@ -1,0 +1,26 @@
+{
+  "name": "longsword",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mrilikecoding/longsword-rails",
+  "authors": [
+    "nathan@longswordvineyard.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/bower_components",
+    "test",
+    "tests",
+    "vendor/assets/bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "BigVideo.js": "~1.1.5",
+    "bootstrap": "~3.3.5",
+    "carouFredSel": "~6.2.1",
+    "jquery.lazyload": "~1.9.7",
+    "jquery-touchswipe": "~1.6.12"
+  }
+}

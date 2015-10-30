@@ -30,6 +30,7 @@ module Longsword
     config.assets.initialize_on_precompile = false
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 
     config.assets.precompile += ['application.js', 'manifests/*.js', 'modules/*.js', 'manifests/*.css', 'modules/*.css', 'manifests/jquery-2.0.3.min.map', 'vendor/*.css', 'vendor/*.js']
 

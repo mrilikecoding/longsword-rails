@@ -14,62 +14,62 @@ body {
     color: $warm-gray;
     &:hover {
       color: $warm-gray;
+  }
+}
+
+.global-divider {
+  @media (min-width: 768px){
+    margin: 40px auto 60px;
+  }
+}
+
+hr {
+  border-top: 1px ridge $light-warm-gray;
+  margin: 20px 85% 20px 0;
+}
+
+address {
+  cursor: pointer;
+}
+
+section {
+  @media (max-width: 400px) {
+    padding: 10px 0 10px;
+  }
+  .content {
+    padding: 15px;
+
+    @media (min-width: 768){
+      padding: 0 50px;
+
     }
   }
+}
 
-  .global-divider {
-    @media (min-width: 768px){
-      margin: 40px auto 60px;
-    }
+h1 {
+  font-size: 3.2em;
+  &.section-title {
+    margin-top: 0;
   }
-
-  hr {
-    border-top: 1px ridge $light-warm-gray;
-    margin: 20px 85% 20px 0;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4em;
+  font-weight: 300;
+  @media (max-width: 400px) {
+    font-size: 1.2em;
   }
-
-  address {
-    cursor: pointer;
-  }
-
-  section {
+  &.lead {
+    padding-top: 0.9em;
+    font-size: 2.1em;
+    line-height: 1.3em;
+    font-family: 'Georgia', serif;
+    color: $warm-gray;
     @media (max-width: 400px) {
-      padding: 10px 0 10px;
-    }
-    .content {
-      padding: 15px;
-
-      @media (min-width: 768){
-        padding: 0 50px;
-
-      }
+      font-size: 1.7em;
     }
   }
-
-  h1 {
-    font-size: 3.2em;
-    &.section-title {
-      margin-top: 0;
-    }
-  }
-  p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.4em;
-    font-weight: 300;
-    @media (max-width: 400px) {
-      font-size: 1.2em;
-    }
-    &.lead {
-      padding-top: 0.9em;
-      font-size: 2.1em;
-      line-height: 1.3em;
-      font-family: 'Georgia', serif;
-      color: $warm-gray;
-      @media (max-width: 400px) {
-        font-size: 1.7em;
-      }
-    }
-  }
+}
 }
 
 header {
@@ -83,103 +83,72 @@ header {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-  position: static;
-  top: 80px;
-  z-index: 0;
   color: $white;
   background-image: url(image_path('header-bg.jpg'));
-  background-position: auto;
   background-size: cover;
-
-  @include transition(background 0.5s linear);
+  .container {
+    height: 100%;
+  }
 
   a {
     color: $white;
   }
 
-  .mobile-header {
-    margin-top: 2em;
-  }
+  .flex {
+    height: 100%;
+    @media (min-width: 768px){
+      display: flex;
+      justify-content: center;
+    }
+    .flex-item{
+      &.text {
+        font-size: 1.2em;
+        padding: 15px;
+        align-self: flex-end;
+        @media (min-width: 768px){
+          height: 110px;
+          width: 200px;
+          margin-bottom: 50px;
+          .divider{
+            text-align: center;
+            border-bottom: 2px ridge $white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 20%;;
+          }
+        }
+        p {
+          padding: 0 0 1em;
+          font-family: 'Georgia', serif;
+          font-size: 0.9em;
+          @media (min-width: 401px) {
+            font-size: 1em;
+          }
+        }
 
-  .header{
-    font-size: 1.2em;
-    padding: 15px;
-    .col-sm-4 {
-
-      @media (min-width: 768px){
-        height: 110px;
-        .divider{
+        h4 {
+          font-size: 1.4em;
+          text-transform: uppercase;
           text-align: center;
-          border-bottom: 2px ridge $white;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          margin: 0 20%;;
+          @media (min-width: 401px) {
+            font-size: 1.5em;
+          }
         }
       }
 
-    }
-
-    .weather-wrapper {
-      p, .weather {
-        display: inline-block;
-      }
-
-      .weather {
-        // margin-bottom: -1.7em;
-        // position: relative;
-        // bottom: 9px;
-      }
-    }
-
-    p {
-      padding: 0 0 1em;
-      font-family: 'Georgia', serif;
-      font-size: 0.9em;
-      @media (min-width: 401px) {
-        font-size: 1em;
-      }
-
-    }
-
-    h4 {
-      font-size: 1.4em;
-      text-transform: uppercase;
-      text-align: center;
-      @media (min-width: 401px) {
-        font-size: 1.5em;
+      &.billboard {
+        height: 435px;
+        width: 282px;
+        align-self: center;
+        background: url(image_path('logo.png')) no-repeat center;
+        background-size: 100% auto;
       }
     }
   }
-
-  .cover-container {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-
-
-  .cover-heading {
-    margin: 0 auto;
-  }
-
-  .billboard {
-    height: 435px;
-    width: 282px;
-    background: url(image_path('logo.png')) no-repeat center;
-    background-size: 100% auto;
-  }
-
-  .cover {
-    padding: 0 20px;
-  }
-  .cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: bold;
-  }
-
 }
+
 #navbar {
   position: fixed;
   top: 0;
@@ -187,8 +156,6 @@ header {
   right: 0;
   height: 79px;
   z-index: 4;
-
-
 }
 
 .navbar {
@@ -214,70 +181,69 @@ header {
       position: static;
       margin-top: 0px;
       width: auto;
-    }
   }
+}
 
-  .navbar-toggle {
-    height: 50px;
-    width: 50px;
+.navbar-toggle {
+  height: 50px;
+  width: 50px;
+  border: 0px solid transparent;
+  background: none;
+  cursor: pointer;
+  &:hover, &:active, &:focus{
     border: 0px solid transparent;
     background: none;
-    cursor: pointer;
-    &:hover, &:active, &:focus{
-      border: 0px solid transparent;
-      background: none;
-    }
+  }
+}
+
+#nav-toggle{
+  span, span:before,  span:after {
+    border-radius: 1px;
+    height: 3px;
+    width: 35px;
+    background: $white;
+    position: absolute;
+    display: block;
+    content: '';
+    @include transition(all 500ms ease-in-out);
+  }
+  span:before {
+    top: -7px;
+  }
+  span:after {
+    bottom: -7px;
   }
 
-  #nav-toggle{
-    span, span:before,  span:after {
-      border-radius: 1px;
-      height: 3px;
-      width: 35px;
-      background: $white;
-      position: absolute;
-      display: block;
-      content: '';
-      @include transition(all 500ms ease-in-out);
-    }
-    span:before {
-      top: -7px;
-    }
-    span:after {
-      bottom: -7px;
-    }
-
-    &.active {
-      span{
-        background-color: transparent;
-        &:before, &:after{
-          top: 0;
-        }
-        &:before{
-          @include transform(rotate(45deg));
-        }
-        &:after {
-          @include transform(rotate(-45deg));
-        }
+  &.active {
+    span{
+      background-color: transparent;
+      &:before, &:after{
+        top: 0;
+      }
+      &:before{
+        @include transform(rotate(45deg));
+      }
+      &:after {
+        @include transform(rotate(-45deg));
       }
     }
   }
+}
 
-  .nav li{
-    display: inline-block;
-    position: relative;
-    &.active > a {
+.nav li{
+  display: inline-block;
+  position: relative;
+  &.active > a {
+    color: $yellow;
+  }
+
+  > a {
+    color: $white;
+
+    &:hover, &:active, &:focus {
       color: $yellow;
-    }
-
-    > a {
-      color: $white;
-
-      &:hover, &:active, &:focus {
-        color: $yellow;
-        background: none;
-        outline: 0;
-      }
+      background: none;
+      outline: 0;
 
       &.current-weather {
         font-size: 0.9em;
@@ -285,46 +251,47 @@ header {
         font-family: 'Georgia', serif;
         text-align: left;
         color: $white;
-      }
     }
+  }
 
-    &.weather-icon-container {
-      position: relative;
-      width: 60px;
-      margin-left: 70px;
-      .weather {
-        top: -40px;
-        position: absolute;
-      }
-    }
-
-
-    @media (max-width: 996px){
-      margin: 0;
-      > a {
-        font-size: 1em;
-      }
+  &.weather-icon-container {
+    position: relative;
+    width: 60px;
+    margin-left: 70px;
+    .weather {
+      top: -40px;
+      position: absolute;
     }
   }
 
 
-  .sublist li{
-    display: none;
-    position: absolute;
-    text-align: left;
-    text-transform: none;
-    width: 100%;
-    &.active {
-      left: 0;
-      bottom: 0;
-      display: inline-block;
-    }
-
-    &.active > a {
-      text-decoration: none;
-      color: $white;
+  @media (max-width: 996px){
+    margin: 0;
+    > a {
+      font-size: 1em;
     }
   }
+}
+
+
+.sublist li{
+  display: none;
+  position: absolute;
+  text-align: left;
+  text-transform: none;
+  width: 100%;
+  &.active {
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+  }
+
+  &.active > a {
+    text-decoration: none;
+    color: $white;
+  }
+}
+}
 }
 
 #contact-tray {
@@ -342,72 +309,72 @@ header {
 
   a {
     color: #000;
-  }
+}
 
-  .form-left, .form-right {
-    display: inline-block;
-    width: 50%;
-    height: 110px;
-  }
+.form-left, .form-right {
+  display: inline-block;
+  width: 50%;
+  height: 110px;
+}
 
-  .form-left {
-    float: left;
-  }
+.form-left {
+  float: left;
+}
 
-  .email, .name {
-    height: 50%;
-    padding-right: 10px;
-  }
+.email, .name {
+  height: 50%;
+  padding-right: 10px;
+}
 
-  .email {
-    padding-bottom: 5px;
-  }
+.email {
+  padding-bottom: 5px;
+}
 
-  .name {
-    padding-top: 5px;
-  }
+.name {
+  padding-top: 5px;
+}
 
-  ::-webkit-input-placeholder { color: $light-warm-gray; }
-  :-moz-placeholder { color: $light-warm-gray; }
-  ::-moz-placeholder { color: $light-warm-gray; }
-  :-ms-input-placeholder { color: $light-warm-gray;}
+::-webkit-input-placeholder { color: $light-warm-gray; }
+:-moz-placeholder { color: $light-warm-gray; }
+::-moz-placeholder { color: $light-warm-gray; }
+:-ms-input-placeholder { color: $light-warm-gray;}
 
-  input, textarea {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    background: $white;
-    @include border-radius(0px);
-  }
+input, textarea {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: $white;
+  @include border-radius(0px);
+}
 
-  p {
-    font-size: 1em;
-    text-transform: none;
-    text-align: left;
-    padding-top: 1em;
-  }
+p {
+  font-size: 1em;
+  text-transform: none;
+  text-align: left;
+  padding-top: 1em;
+}
 
-  #submit {
-    margin: 12px 0 85px;
-    height: 50px;
-    background: $white;
-    text-transform: uppercase;
-    color: $dark-gray;
-    border: 2px solid $dark-gray;
-    @include border-radius(0px);
-  }
+#submit {
+  margin: 12px 0 85px;
+  height: 50px;
+  background: $white;
+  text-transform: uppercase;
+  color: $dark-gray;
+  border: 2px solid $dark-gray;
+  @include border-radius(0px);
+}
 
-  .close-contact {
-    font-family: 'Georgia', serif;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    color: $dark-gray;
-    cursor: pointer;
-  }
+.close-contact {
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: $dark-gray;
+  cursor: pointer;
+}
 
-  .facebook {
-    margin-left: 20px;
-  }
+.facebook {
+  margin-left: 20px;
+}
 }
 
 .main-wrapper {
@@ -416,30 +383,30 @@ header {
   background: $white;
   .inner-wrapper{
     position: relative;
-  }
+}
 }
 
 
 #visit{
   padding-top: 45px;
-      margin: 0;
+  margin: 0;
   @media (max-width: 400px) {
     padding-top: 0px;
-  }
+}
 
-  .content {
-    @media (min-width: 960px){
-       padding: 0 50px;
-    }
+.content {
+  @media (min-width: 960px){
+    padding: 0 50px;
   }
-  .roses {
-    height: 550px;
-    background: url(image_path('roses.jpg')) 100% 100%;
-  }
+}
+.roses {
+  height: 550px;
+  background: url(image_path('roses.jpg')) 100% 100%;
+}
 
-  .offerings {
-    width: 100%;
-  }
+.offerings {
+  width: 100%;
+}
 }
 
 #wines {
@@ -455,15 +422,15 @@ header {
       text-transform: uppercase;
       top: 10px;
       width: 100%;
-    }
-    img.wine {
-      padding: 0 0 0;
-      width: 100%;
-      height: auto;
-      top: 0;
-      z-index: 0;
-    }
   }
+  img.wine {
+    padding: 0 0 0;
+    width: 100%;
+    height: auto;
+    top: 0;
+    z-index: 0;
+  }
+}
 }
 
 footer {
@@ -474,21 +441,21 @@ footer {
   h3 {
     font-size: 2.5em;
     text-transform: uppercase;
-  }
-  p {
-    font-family: 'Georgia', serif;
-  }
+}
+p {
+  font-family: 'Georgia', serif;
+}
 
-  a {
-    &.see-map{
-      font-family: "Open Sans", sans-serif;
-      text-decoration: underline;
-    }
-    color: $cream;
-    &:hover {
-      color: #fff;
-    }
+a {
+  &.see-map{
+    font-family: "Open Sans", sans-serif;
+    text-decoration: underline;
   }
+  color: $cream;
+  &:hover {
+    color: #fff;
+  }
+}
 }
 
 
@@ -496,27 +463,27 @@ footer {
   .modal-content{
     background: #000;
     color: $cream;
+}
+.modal-header{
+  border-bottom: none;
+  a{
+    color: $cream;
+    text-decoration: underline;
   }
-  .modal-header{
-    border-bottom: none;
-    a{
-      color: $cream;
-      text-decoration: underline;
-    }
+}
+.modal-body{
+  padding: 0;
+  #gmap_canvas {
+    height: 300px;
+    border-top: 2px solid $yellow;
+    border-bottom: 2px solid $yellow;
   }
-  .modal-body{
-    padding: 0;
-    #gmap_canvas {
-      height: 300px;
-      border-top: 2px solid $yellow;
-      border-bottom: 2px solid $yellow;
-    }
-  }
-  .closeModal {
-    text-align: center;
-    font-family: 'Georgia', serif;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    cursor: pointer;
-  }
+}
+.closeModal {
+  text-align: center;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  cursor: pointer;
+}
 }

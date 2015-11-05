@@ -13,13 +13,13 @@
               %div{class: "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
                 = content_tag :div, msg, :id => "flash_#{name}"
-      .cover-container.billboard.row
-      .row.header
-        .col-sm-6
+      .row.flex
+        .flex-item.text
           %h4 Visit Us
           %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238, Jacksonville, OR 97530
           %a{:href =>"tel:+15418991746"}541.899.1746
-        .col-sm-6
+        .flex-item.billboard.hidden-xs
+        .flex-item.text
           %h4 Tasting Room Hours
           %p
             12-5pm every day

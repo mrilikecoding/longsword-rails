@@ -3,8 +3,6 @@
 = content_for :js_placeholder do
   = javascript_include_tag 'manifests/home'
 
-
-
 %header
   .header-wrapper.text-center
     .container
@@ -15,30 +13,18 @@
               %div{class: "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
                 = content_tag :div, msg, :id => "flash_#{name}"
+      .cover-container.billboard.row
       .row.header
-        .col-sm-4
+        .col-sm-6
           %h4 Visit Us
-          %address
-            %p
-              %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238
-              %br Jacksonville, OR 97530
-              %a{:href =>"tel:+15418991746"}541.899.1746
-        .col-sm-4
+          %span{"data-toggle" => "modal", "data-target" => "#mapModal"} 8555 Highway 238, Jacksonville, OR 97530
+          %a{:href =>"tel:+15418991746"}541.899.1746
+        .col-sm-6
           %h4 Tasting Room Hours
           %p
             12-5pm every day
-            %br
+            |
             %a.contact-us{:href=>"#"} Contact Us
-        .col-sm-4
-          - if @weather_available
-            %h4 Forecast
-            .weather-wrapper
-              .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
-              %p.forecast
-                Currently: #{@current_temp}&#186;F, #{@current_weather}
-                %br
-                  #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
-      .cover-container.billboard.row.hidden-xs
 
 #navbar.navbar.navbar-inverse{role: "navigation"}
   .container
@@ -46,9 +32,9 @@
       %button#nav-toggle.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span
       %a.navbar-brand{:href => "#"}
-        .global-nav-logo
+        .global-lsv-logo
     .collapse.navbar-collapse.scrollspy-target
-      %ul.nav.navbar-justified
+      %ul.nav.navbar-nav
         %li
           %a{href: "#visit", "data-close-nav" => "true"} Visit LongSword
         %li
@@ -57,6 +43,17 @@
           %a{href: "#about", "data-close-nav" => "true"} About Us
         %li.contact-link
           %a#contact{href: "javascript:void(0)"} Contact
+      - if @weather_available
+        %ul.nav.navbar-nav.navbar-right.hidden-sm
+          -# %li.weather-icon-container
+          -#   .weather{:class=> "weather-#{@icon}" + ((@after_sunset && @before_sunrise) ? "-night" : "")}
+          %li.current-weather
+            %a{href: "http://www.wunderground.com/personal-weather-station/dashboard?ID=KORJACKS10", target: "_blank"}
+              Currently: #{@current_temp}&#186;F, #{@current_weather}
+              %br
+              #{@after_close ? "Tomorrow: #{@high_tomorrow}" : "Later: #{@high}"}&#186;F
+
+
   #contact-tray
     .container
       .row
@@ -91,7 +88,7 @@
         %section#patio.tasting-room
           .row
             .col-sm-12.content
-              %h2.section-title.hidden-xs Tasting room and patio
+              %h2.section-title Tasting room and patio
               %p Enjoy chatting with locals as you sample our wines in the tasting room or grab a bottle and spend a relaxing afternoon on the patio.
               %p Either way you'll be enchanted by breath-taking views of the vineyard and the surrounding mountains. Tastings are only $5 and lingering is encouraged.
 
@@ -105,7 +102,7 @@
         %section#parasailing.parasailing
           .row
             .col-sm-12.content
-              %h2.section-title.hidden-xs Parasailing
+              %h2.section-title Parasailing
               %p On any given afternoon, odds are you’ll see the colorful sails of hang gliders and parasailers growing large in the sky as they descend from Woodrat Mountain.
               %p Work your way through a bottle, and you'll probably even witness a daredevil landing or two in the field in front of the tasting room!
               %hr
@@ -118,30 +115,28 @@
           .col-md-12.content
             %h1.section-title Our wines
             .row
-              .col-md-4.col-sm-6.col-xs-12
+              .col-sm-4.col-xs-12
                 .image
                   %h3 Accolade
                   %img.wine{:src => image_url('accolade.jpg')}
                 %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
-              .col-md-4.col-sm-6.col-xs-12
+              .col-sm-4.col-xs-12
                 .image
                   %h3 Invitation
                   %img.wine{:src =>image_url('invitation.jpg')}
                 %p Elegant and lively, Invitation is a unique non-oaked Chardonnay that pairs bright citrus and crisp mineral flavors with lovely notes of pear and melon to create a delightfully well-balanced, food-friendly wine.
-              .clearfix.visible-sm
-              .col-md-4.col-sm-6.col-xs-12
+              .col-sm-4.col-xs-12
                 .image
                   %h3 Phrase
                   %img.wine{:src => image_url('phrase.jpg')}
                 %p Beautifully rich and dark, Phrase features fragrant notes of blackberries and violets that unfurl into a spicy cardamom and pepper finish to create an unforgettable medium-bodied Pinot Noir.
             .row
-              .col-md-2
-              .col-md-4.col-sm-6.col-xs-12
+              .col-sm-4.col-xs-12
                 .image
                   %h3 Glissade
                   %img.wine{:src => image_url('accolade.jpg')}
                 %p An enchanting, lightly sparkling Chardonnay known as "the wedding wine," Accolade delights and charms the palette for any occasion by combining playful notes of citrus with just a hint of sweetness for a truly effervescent experience!
-              .col-md-4.col-sm-6.col-xs-12
+              .col-sm-4.col-xs-12
                 .image
                   %h3 Touché
                   %img.wine{:src =>image_url('invitation.jpg')}
@@ -151,7 +146,7 @@
       .container
         .row
           .col-sm-12.content
-            %h1.section-title.hidden-xs.hidden-sm About Us
+            %h1.section-title About Us
             %p After thirty years working in the corporate world, Matthew Sorensen decided to trade in his suit and tie for jeans and work boots and head West. Armed with degrees in botany, biochemistry, and business, an unquenchable love of wine, and a fencing hobby, Matt set to work on creating LongSword Vineyard.
             %p From farm to bottle, Matt skillfully crafts each and every LongSword wine. As farmer, owner, and vintner of LongSword, he is passionate about producing wines that will delight and inspire his guests.
             %p Matt would like to thank the Applegate community, Tony, Teresa, Lola, and Rogue for their generosity in supporting his dream.

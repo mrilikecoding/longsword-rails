@@ -6,6 +6,7 @@ $weather-sprite-dimensions: true;
 $global-spacing: 10px;
 $weather-spacing: 10px;
 @import 'global/*.png';
+@import 'global-retina/*.png';
 @import 'weather/*.png';
 @include all-global-sprites;
 @include all-weather-sprites;

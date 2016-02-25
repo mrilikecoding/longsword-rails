@@ -196,7 +196,6 @@ DEPENDENCIES
   binding_of_caller
   compass (~> 0.12.4)
   compass-rails (~> 1.1.7)
-  eventmachine (~> 1.0)
   figaro
   haml-rails
   httparty
